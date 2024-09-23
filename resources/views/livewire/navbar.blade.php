@@ -1,5 +1,5 @@
 <!-- ========== HEADER ========== -->
-<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-blue-900">
+<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-indigo-800">
     <nav
         class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 mx-auto">
         <div class="md:col-span-3">
@@ -82,6 +82,16 @@
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">PPDB</a>
+                </div>
+
+                <!-- Menggunakan Font Awesome untuk ikon pencarian -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+                <div>
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                       href="#">
+                        <i class="fas fa-search"></i> 
+                    </a>
                 </div>
             </div>
         </div>
