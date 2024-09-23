@@ -38,7 +38,7 @@
     {{-- End Header Section --}}
 
     {{-- Start Agenda Section --}}
-    <section class="relative bg-red-100 py-20">
+    <section class="relative bg-zinc-50 py-20">
         <!-- Icon Blocks -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <h1 class="text-4xl ml-12 lg:ml-36 text-slate-800 font-bold text-left mb-16">Agenda Bulan

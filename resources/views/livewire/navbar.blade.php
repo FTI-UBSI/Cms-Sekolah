@@ -1,5 +1,5 @@
 <!-- ========== HEADER ========== -->
-<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-white">
+<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-blue-900">
     <nav
         class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 mx-auto">
         <div class="md:col-span-3">
@@ -25,16 +25,6 @@
         </div>
 
         <!-- Button Group -->
-        <div class="flex items-center gap-x-4 md:gap-x-6 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-            <button type="button"
-                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium text-blue-600 hover:text-blue-700 focus:outline-none focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-500 dark:focus:text-blue-500">
-                Kontak
-            </button>
-            <button type="button"
-                class="py-2 px-5 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 transition disabled:opacity-50 disabled:pointer-events-none">
-                PPDB
-            </button>
-        </div>
 
             <div class="md:hidden">
                 <button type="button"
@@ -66,24 +56,32 @@
             <div
                 class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
                 <div>
-                    <a class="relative inline-block text-black focus:outline-none before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 dark:text-white"
+                    <a class="relative inline-block text-white  hover:text-yellow-400 focus:outline-none before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 dark:text-white"
                         href="#" aria-current="page">Beranda</a>
                 </div>
                 <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">Profile</a>
                 </div>
                 <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">Program</a>
                 </div>
                 <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">Media</a>
                 </div>
                 <div>
-                    <a class="inline-block text-black hover:text-gray-600 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300"
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">Event</a>
+                </div>
+                <div>
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                        href="#">Kontak</a>
+                </div>
+                <div>
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                        href="#">PPDB</a>
                 </div>
             </div>
         </div>
