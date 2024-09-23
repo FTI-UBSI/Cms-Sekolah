@@ -9,6 +9,7 @@ use App\Livewire\Foto;
 use App\Livewire\KontenBerita;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
+use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -26,5 +27,6 @@ Route::get('/berita', Berita::class);
 Route::get('/berita/{id}', KontenBerita::class);
 Route::get('/tenaga-kependidikan', Tendik::class);
 Route::get('/ekstrakurikuler', Ekstrakurikuler::class);
+Route::get('/slider', [Slider::class, 'showSlider']);
 
 

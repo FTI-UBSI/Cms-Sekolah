@@ -19,6 +19,14 @@ class SliderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public function showSlider()
+{
+    // Ambil semua slider yang aktif
+    $slider = Slider::where('is_active', true)->get(); 
+
+    // Kirim data ke view
+    return view('slider', compact('slider'));
+}
     public static function form(Form $form): Form
     {
         return $form
@@ -55,16 +63,7 @@ class SliderResource extends Resource
                             ->imageEditor()
                             ->disk('public')
                             ->directory('slider'),
-                        Forms\Components\TextInput::make('button_text')
-                            ->placeholder('Masukan Teks Tombol')
-                            ->label('Tombol Teks')
-                            ->maxLength(255)
-                            ->default(null),
-                        Forms\Components\TextInput::make('button_link')
-                            ->placeholder('Masukan Link Tombol')
-                            ->label('Tombol Link')
-                            ->maxLength(255)
-                            ->default(null),
+
                     ])
 
             ]);
@@ -92,12 +91,6 @@ class SliderResource extends Resource
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_cover')
                     ->label('Gambar Cover'),
-                Tables\Columns\TextColumn::make('button_text')
-                    ->label('Tombol Teks')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('button_link')
-                    ->label('Tombol Link')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime()

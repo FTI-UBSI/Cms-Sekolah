@@ -2,37 +2,54 @@
     {{-- Start Header Section --}}
     <header>
         <!-- Grid -->
-        @foreach ($slider as $item)
-            <div class="grid lg:grid-cols-2 gap-4 md:gap-8 xl:gap-12 md:items-center">
-                <div class="space-y-10 ml-12 lg:ml-24">
-                    <h1
-                        class="block text-4xl font-bold text-gray-800 sm:text-5xl lg:text-6xl lg:leading-tight dark:text-white">
-                        {{ $item->title }}
-                    </h1>
-                    <p class="mt-3 text-xl font-semibold text-gray-500 dark:text-neutral-400">{!! $item->description !!}</p>
+        <!-- Slider -->
+<!-- Slider -->
+<div data-hs-carousel='{
+    "loadingClasses": "opacity-0",
+    "isAutoPlay": true
+  }' class="relative">
+  <div class="hs-carousel relative overflow-hidden w-full min-h-[600px] bg-white ">
+    <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
+      
+      @foreach($slider as $slide)
+      <div class="hs-carousel-slide">
+        <div class="flex flex-col justify-center h-full p-6" style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center;">
+            <span class="place-items-start font-sans text-6xl text-white text-opacity-70 transition duration-700">{{ $slide->title }}</span>
+            <span class="place-items-start font-serif text-2xl text-white transition duration-700">{{ $slide->description }}</span>
+        </div>
+    </div>
+      @endforeach
 
-                    <!-- Buttons -->
-                    <div class="mt-6 grid gap-3 w-full sm:inline-flex">
-                        <a class="py-3 px-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                            href="{{ $item->button_link }}">
-                            {{ $item->button_text }}
-                        </a>
-                        <a class="py-3 px-8 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-sky-600 bg-inherit text-sky-600 shadow-sm hover:bg-sky-50 focus:outline-none focus:bg-sky-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-                            href="#">
-                            Kontak
-                        </a>
-                    </div>
-                    <!-- End Buttons -->
-                </div>
-                <!-- End Col -->
+    </div>
+  </div>
 
-                <div class="relative hidden sm:block self-end lg:justify-end ">
-                    <img class="w-full object-cover" src="{{ asset('storage/' . $item->image_cover) }}"
-                        alt="Hero Image">
-                </div>
-                <!-- End Col -->
-            </div>
-        @endforeach
+  <button type="button" class="hs-carousel-prev hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+    <span class="text-2xl" aria-hidden="true">
+      <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"></path>
+      </svg>
+    </span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button type="button" class="hs-carousel-next hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+    <span class="sr-only">Next</span>
+    <span class="text-2xl" aria-hidden="true">
+      <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m9 18 6-6-6-6"></path>
+      </svg>
+    </span>
+  </button>
+
+  <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
+    @foreach($slider as $slide)
+    <span class="hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"></span>
+    @endforeach
+  </div>
+</div>
+<!-- End Slider -->
+
+<!-- End Slider -->
+
         <!-- End Grid -->
     </header>
     {{-- End Header Section --}}
@@ -41,7 +58,7 @@
     <section class="relative bg-zinc-50 py-20">
         <!-- Icon Blocks -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-            <h1 class="text-4xl ml-12 lg:ml-36 text-slate-800 font-bold text-left mb-16">Agenda Bulan
+            <h1 class="text-4xl ml-12 lg:ml-36 text-slate-800 font-bold text-center mb-16">Agenda Bulan
                 {{ $month }}
             </h1>
             <!-- Grid -->
