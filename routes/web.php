@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Resources\AnnouncementController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Beranda;
 use App\Livewire\Berita;
@@ -9,6 +10,7 @@ use App\Livewire\Foto;
 use App\Livewire\KontenBerita;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
+use App\Models\Announcement;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +30,14 @@ Route::get('/berita/{id}', KontenBerita::class);
 Route::get('/tenaga-kependidikan', Tendik::class);
 Route::get('/ekstrakurikuler', Ekstrakurikuler::class);
 Route::get('/slider', [Slider::class, 'showSlider']);
+Route::get('/announcements', function () {
+    // Ambil semua pengumuman yang aktif
+    $announcements = Announcement::where('is_active', true)
+                                  ->orderBy('order', 'asc')
+                                  ->get();
+
+    // Kirim variabel $announcements ke view 'announcements.index'
+    return view('announcements.index', compact('announcements'));
+})->name('announcements.index');
 
 

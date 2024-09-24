@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\AgendaResource;
+use App\Filament\Resources\AnnouncementResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\ExtracurricularResource;
 use App\Filament\Resources\PhotoResource;
@@ -101,6 +102,10 @@ class AdminPanelProvider extends PanelProvider
                                 ->icon('heroicon-o-document-text')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.news.index'))
                                 ->url(NewsResource::getUrl()),
+                                NavigationItem::make('Pengumuman')
+                                ->icon('heroicon-o-document-text')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.announcements.index'))
+                                ->url(AnnouncementResource::getUrl()),
                         ]),
                     NavigationGroup::make('Page Profil')
                         ->items([

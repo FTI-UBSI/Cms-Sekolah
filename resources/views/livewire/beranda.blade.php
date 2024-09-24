@@ -48,10 +48,96 @@
 </div>
 <!-- End Slider -->
 
-<!-- End Slider -->
+
+<div>
+    {{-- Start Header Section --}}
+    <header>
+        <!-- Existing HTML Slider and Other Sections -->
+
+        <!-- Livewire Announcements Section -->
+        <section class="my-8">
+            <div class="container mx-auto">
+                <h2 class="text-3xl  mb-6 text-center text-blue-900 font-serif font-extrabold">PENGUMUMAN SEKOLAH</h2>
+                <div class="relative">
+                    <div data-hs-carousel='{
+                        "loadingClasses": "opacity-0",
+                        "isAutoPlay": true
+                      }' class="relative w-full h-screen"> <!-- ubah menjadi w-full dan h-screen -->
+                      <div class="hs-carousel relative overflow-hidden w-full h-full bg-white"> <!-- ubah menjadi w-full dan h-full -->
+                        <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0 h-full"> <!-- ubah h-full -->
+                          
+                          @foreach($announcements as $slide)
+                          <div class="hs-carousel-slide flex-grow w-full h-full">
+                            <div class="flex flex-col justify-start items-center h-full p-6" 
+                                 style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center; height: 100vh; width: 100vw;">
+                                
+                                <!-- Card putih transparan di belakang judul, deskripsi, dan tombol -->
+                                <div class="bg-white bg-opacity-80 rounded-lg p-6 text-center max-w-[100%] md:max-w-[80%]">
+                                    
+                                    <!-- Judul -->
+                                    <span class="font-serif text-5xl text-bold text-blue-900  transition duration-700 leading-snug">
+                                        {{ $slide->title }}
+                                    </span>
+                                    <br><br><br>
+                                    <!-- Deskripsi -->
+                                    <span class="font-serif text-3xl text-black transition duration-700 leading-snug mt-4 block">
+                                        {{ $slide->description }}
+                                    </span>
+                                    <br><br><br>
+                                    
+                                    <!-- Tombol dengan button_text sebagai teks dan button_link sebagai link -->
+                                    <a href="{{ $slide->button_link }}" class="mt-6 inline-block">
+                                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-500">
+                                            {{ $slide->button_text }}
+                                        </button>
+                                    </a>
+                        
+                                </div>   
+                            </div>
+                        </div>
+                        
+                        
+                          @endforeach
+                    
+                        </div>
+                      </div>
+                    
+                      <button type="button" class="hs-carousel-prev hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="text-2xl" aria-hidden="true">
+                          <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6"></path>
+                          </svg>
+                        </span>
+                        <span class="sr-only">Previous</span>
+                      </button>
+                      <button type="button" class="hs-carousel-next hs-carousel:disabled:opacity-50 disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="sr-only">Next</span>
+                        <span class="text-2xl" aria-hidden="true">
+                          <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </span>
+                      </button>
+                    
+                      <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
+                        @foreach($slider as $slide)
+                        <span class="hs-carousel-active:bg-blue-900 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"></span>
+                        @endforeach
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- End Announcement Sections -->
+        <!-- End Existing Sections -->
+    </header>
+</div>
+
 
         <!-- End Grid -->
     </header>
+
     {{-- End Header Section --}}
 
     {{-- Start Agenda Section --}}

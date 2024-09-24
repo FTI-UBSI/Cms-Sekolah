@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Agenda;
+use App\Models\Announcement;
 use App\Models\Extracurricular;
 use App\Models\News;
 use App\Models\Slider;
@@ -17,6 +18,15 @@ class Beranda extends Component
     public $extracurricular;
     public $month;
     public $news;
+    public $announcements;
+
+    //announcement
+    protected function loadAnnouncement()
+    {
+        // Mengambil semua data slider
+        $this->announcements = Announcement::all()
+        ->where('is_active', 1);
+    }
 
     // Slider
     protected function loadSlider()
@@ -65,6 +75,7 @@ class Beranda extends Component
     public function mount()
     {
         $this->loadSlider();
+        $this->loadAnnouncement();
         $this->loadAgenda();
         $this->loadExtracurricular();
         $this->loadNews();
