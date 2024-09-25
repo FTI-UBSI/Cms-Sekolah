@@ -2,10 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AnnouncementResource\Pages;
-use App\Filament\Resources\AnnouncementResource\RelationManagers;
+use App\Filament\Resources\ProbriResource\Pages;
+use App\Filament\Resources\ProbriResource\RelationManagers;
 use App\Http\Controllers\Controller;
-use App\Models\Announcement;
+use App\Models\Probri;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,23 +14,22 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
-class AnnouncementController extends Controller
+class ProbriController extends Controller
 {
     public function index()
     {
         // Mengambil semua pengumuman yang aktif dan mengurutkannya berdasarkan 'order'
-        $announcements = Announcement::where('is_active', true)
+        $probri = Probri::where('is_active', true)
                             ->orderBy('order', 'asc')
                             ->get();
 
-        return view('announcements.index', compact('announcements'));
+        return view('probri.index', compact('probri'));
     }
 }
 
-class AnnouncementResource extends Resource
+class ProbriResource extends Resource
 {
-    protected static ?string $model = Announcement::class;
+    protected static ?string $model = Probri::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -57,10 +56,15 @@ class AnnouncementResource extends Resource
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('image_cover')
                     ->image(),
+                Forms\Components\FileUpload::make('video_cover')
+                    ->image(),
                 Forms\Components\TextInput::make('button_text')
                     ->maxLength(255)
                     ->default(null),
                 Forms\Components\TextInput::make('button_link')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('video_link')
                     ->maxLength(255)
                     ->default(null),
             ]);
@@ -88,6 +92,8 @@ class AnnouncementResource extends Resource
                 ->searchable(),
             Tables\Columns\ImageColumn::make('image_cover')
                 ->label('Gambar Cover'),
+                Tables\Columns\ImageColumn::make('video_cover')
+                ->label('Video Cover'),
             Tables\Columns\TextColumn::make('created_at')
                 ->label('Dibuat')
                 ->dateTime()
@@ -119,13 +125,12 @@ class AnnouncementResource extends Resource
         ];
     }
 
-    
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAnnouncements::route('/'),
-            'create' => Pages\CreateAnnouncement::route('/create'),
-            'edit' => Pages\EditAnnouncement::route('/{record}/edit'),
+            'index' => Pages\ListProbris::route('/'),
+            'create' => Pages\CreateProbri::route('/create'),
+            'edit' => Pages\EditProbri::route('/{record}/edit'),
         ];
     }
 }

@@ -90,6 +90,10 @@ class AdminPanelProvider extends PanelProvider
                                 ->icon('heroicon-o-arrows-right-left')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.sliders.index'))
                                 ->url(SliderResource::getUrl()),
+                            NavigationItem::make('Profil Singkat')
+                                ->icon('heroicon-o-tv')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.sliders.index'))
+                                ->url(SliderResource::getUrl()),
                             NavigationItem::make('Agenda')
                                 ->icon('heroicon-o-calendar-days')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.agendas.index'))
@@ -103,7 +107,7 @@ class AdminPanelProvider extends PanelProvider
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.news.index'))
                                 ->url(NewsResource::getUrl()),
                                 NavigationItem::make('Pengumuman')
-                                ->icon('heroicon-o-document-text')
+                                ->icon('heroicon-o-speaker-wave')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.announcements.index'))
                                 ->url(AnnouncementResource::getUrl()),
                         ]),

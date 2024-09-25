@@ -72,7 +72,7 @@
                                  style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center; height: 100vh; width: 100vw;">
                                 
                                 <!-- Card putih transparan di belakang judul, deskripsi, dan tombol -->
-                                <div class="bg-white bg-opacity-80 rounded-lg p-6 text-center max-w-[100%] md:max-w-[80%]">
+                                <div class="bg-white bg-opacity-70 rounded-lg p-6 text-center max-w-[100%] md:max-w-[80%]">
                                     
                                     <!-- Judul -->
                                     <span class="font-serif text-5xl text-bold text-blue-900  transition duration-700 leading-snug">
