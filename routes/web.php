@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Resources\AnnouncementController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Beranda;
 use App\Livewire\Berita;
@@ -10,6 +11,7 @@ use App\Livewire\KontenBerita;
 use App\Livewire\Media;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
+use App\Models\Announcement;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +31,5 @@ Route::get('/berita/{id}', KontenBerita::class);
 Route::get('/tenaga-kependidikan', Tendik::class);
 Route::get('/ekstrakurikuler', Ekstrakurikuler::class);
 Route::get('/slider', [Slider::class, 'showSlider']);
-Route::get('/media', Media::class)->name('Media') ;
+
+
