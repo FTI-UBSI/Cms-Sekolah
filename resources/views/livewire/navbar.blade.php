@@ -57,7 +57,7 @@
                 class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
                 <div>
                     <a class="relative inline-block text-white  hover:text-yellow-400 focus:outline-none before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 dark:text-white"
-                        href="{{  route('Beranda') }}" aria-current="page">Beranda</a>
+                        href="{{ route('Beranda') }}" aria-current="page">Beranda</a>
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="{{ route('Media') }}">Media</a>
+                        href="">Media</a>
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
@@ -81,7 +81,7 @@
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">PPDB</a>
+                        href="{{ route('HalamanPPDB') }}">PPDB</a>
                 </div>
             </div>
         </div>

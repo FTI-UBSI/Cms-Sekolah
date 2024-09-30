@@ -9,7 +9,11 @@ use App\Filament\Resources\ExtracurricularResource;
 use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
 use App\Filament\Resources\NewsResource;
+use App\Filament\Resources\PpdbResource;
+use App\Filament\Resources\ProbriResource;
+use App\Filament\Resources\SeragamResource;
 use App\Filament\Resources\SliderResource;
+use App\Filament\Resources\TestimoniResource;
 use App\Filament\Resources\VideoResource;
 use App\Livewire\Auth\Login;
 use Filament\Http\Middleware\Authenticate;
@@ -92,8 +96,16 @@ class AdminPanelProvider extends PanelProvider
                                 ->url(SliderResource::getUrl()),
                             NavigationItem::make('Profil Singkat')
                                 ->icon('heroicon-o-tv')
-                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.sliders.index'))
-                                ->url(SliderResource::getUrl()),
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.probris.index'))
+                                ->url(ProbriResource::getUrl()),
+                            NavigationItem::make('Jadwal Seragam')
+                                ->icon('heroicon-o-academic-cap')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.seragam.index'))
+                                ->url(SeragamResource::getUrl()),
+                                NavigationItem::make('Testimoni Orang')
+                                ->icon('heroicon-o-chat-bubble-oval-left-ellipsis')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.testimoni.index'))
+                                ->url(TestimoniResource::getUrl()),
                             NavigationItem::make('Agenda')
                                 ->icon('heroicon-o-calendar-days')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.agendas.index'))
@@ -122,17 +134,54 @@ class AdminPanelProvider extends PanelProvider
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.educators.index'))
                                 ->url(EducatorResource::getUrl()),
                         ]),
+
+                    NavigationGroup::make('Page Program'),
+
+
                     NavigationGroup::make('Page Media')
                         ->items([
                             NavigationItem::make('Photo')
-                            ->icon('heroicon-o-photo')
-                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
-                            ->url(PhotoResource::getUrl()), 
+                                ->icon('heroicon-o-photo')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
+                                ->url(PhotoResource::getUrl()), 
                             NavigationItem::make('Video')
                                 ->icon('heroicon-o-video-camera')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
                                 ->url(VideoResource::getUrl()),
-                        ])
+                        ]),
+                    NavigationGroup::make('Page Event')
+                        ->items([
+                            NavigationItem::make('Namanya bebas')
+                            ->icon('heroicon-o-photo')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
+                            ->url(PhotoResource::getUrl()), 
+                            NavigationItem::make('Namanya bebas')
+                                ->icon('heroicon-o-video-camera')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
+                                ->url(VideoResource::getUrl()),
+                    ]),
+                    NavigationGroup::make('Page Kontak')
+                        ->items([
+                            NavigationItem::make('Namanya bebas')
+                            ->icon('heroicon-o-photo')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
+                            ->url(PhotoResource::getUrl()), 
+                            NavigationItem::make('Namanya bebas')
+                                ->icon('heroicon-o-video-camera')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
+                                ->url(VideoResource::getUrl()),
+                ]),
+                        NavigationGroup::make('Page PPDB')
+                        ->items([
+                            NavigationItem::make('Informasi PPDB')
+                            ->icon('heroicon-o-home')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.ppdb.index'))
+                            ->url(PpdbResource::getUrl()), 
+                            NavigationItem::make('Namanya bebas')
+                                ->icon('heroicon-o-video-camera')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
+                                ->url(VideoResource::getUrl()),
+                    ]),
                 ]);
             })
             ->authMiddleware([

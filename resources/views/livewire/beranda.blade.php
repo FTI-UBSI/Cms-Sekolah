@@ -130,9 +130,108 @@
         </section>
         
         <!-- End Announcement Sections -->
+
+         <!-- start Probis Sections -->
+         <div class="container mx-auto p-4">
+            @foreach($video as $item)
+            <!-- Grid container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Profil Video Section -->
+                <div class="profil-section bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-700">{{ $item->title_video }}</h2>
+        
+                    <!-- Ambil ID dari URL video, jika perlu -->
+                    @php
+                        if ($item->video_link) {
+                            if (strpos($item->video_link, 'youtu.be') !== false) {
+                                $url_components = parse_url($item->video_link);
+                                $video_id = trim($url_components['path'], '/');
+                            } elseif (strpos($item->video_link, 'youtube.com') !== false) {
+                                $url_components = parse_url($item->video_link);
+                                parse_str($url_components['query'] ?? '', $url_params);
+                                $video_id = $url_params['v'] ?? null;
+                            }
+                        } else {
+                            $video_id = null;
+                        }
+                    @endphp
+        
+                    <div class="video-wrapper mb-4 relative" style="padding-top: 56.25%; position: relative;">
+                        @if(isset($video_id))
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/{{ $video_id }}" frameborder="0" allowfullscreen></iframe>
+                        @else
+                            <p>Video tidak tersedia</p>
+                        @endif
+                    </div>
+        
+                    <p class="text-gray-700 mb-4">{{ $item->description_video }}</p>
+                </div>
+        
+                <!-- Berita Terbaru Section -->
+               <!-- Berita end Section -->
+            </div>
+            @endforeach
+        </div>
+          <!-- End Probis Sections -->
         <!-- End Existing Sections -->
     </header>
-</div>
+
+
+     <!-- End Probis Sections -->
+     <div class="max-w-7xl mx-auto py-12">
+        <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">TESTIMONI ORANGTUA</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @foreach($testimoni as $item)
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <img src="{{ asset('storage/' . $item->image_cover) }}" alt="{{ $item->title }}" class="w-24 h-24 rounded-full mx-auto mb-4">
+                <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
+                <!-- Membatasi deskripsi menjadi satu baris dengan ellipsis -->
+                <p class="text-gray-500 mt-2 truncate">{{ $item->description }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    
+    
+    <!-- End Existing Sections -->
+
+
+        <!-- Grid untuk seragam (Senin - Jumat) -->
+        <div class="container mx-auto my-5">
+            <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">SERAGAM SEKOLAH</h2>
+        
+            <!-- Baris pertama: 3 item -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                @foreach ($seragam->take(3) as $item) 
+                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
+                        <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 object-cover" alt="{{ $item->title }}">
+                        <div class="p-4 text-center">
+                            <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            
+            <!-- Baris kedua: 2 item -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center ">
+                @foreach ($seragam->skip(3)->take(3) as $item) 
+                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
+                        <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 object-cover" alt="{{ $item->title }}">
+                        <div class="p-4 text-center">
+                            <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            
+            
+        </div>
+        
+        
+    
+    
+    
+    <!-- End Seragam Sections -->
 
 
         <!-- End Grid -->
