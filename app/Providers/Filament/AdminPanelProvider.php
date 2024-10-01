@@ -11,6 +11,8 @@ use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
 use App\Filament\Resources\InfoppdbResource;
 use App\Filament\Resources\JadwalppdbResource;
+use App\Filament\Resources\MediaBeritaResource;
+use App\Filament\Resources\MediaFotoResource;
 use App\Filament\Resources\NewsResource;
 use App\Filament\Resources\PpdbResource;
 use App\Filament\Resources\ProbriResource;
@@ -147,11 +149,19 @@ class AdminPanelProvider extends PanelProvider
                             NavigationItem::make('Photo')
                                 ->icon('heroicon-o-photo')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
-                                ->url(PhotoResource::getUrl()), 
+                                ->url(MediaFotoResource::getUrl()), 
                             NavigationItem::make('Video')
                                 ->icon('heroicon-o-video-camera')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
                                 ->url(VideoResource::getUrl()),
+                                NavigationItem::make('Medsos')
+                                ->icon('heroicon-o-at-symbol')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.medsos.index'))
+                                ->url(VideoResource::getUrl()),
+                            NavigationItem::make('Media Berita')
+                            ->icon('heroicon-o-newspaper')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.mediaberitas.index'))
+                            ->url(MediaBeritaResource::getUrl()),
                         ]),
                     NavigationGroup::make('Page Event')
                         ->items([

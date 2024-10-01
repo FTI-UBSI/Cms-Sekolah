@@ -38,8 +38,9 @@ class Beranda extends Component
 
     public function loadVideo() {
         // Mengambil semua data slider
-        $this->video = Video::all()
-        ->where('is_active', 1);
+        $this->video = Video::latest()->take(1)
+        ->where('is_active', 1)->first();
+        // dd($this->video);
     }
 
     public function loadTestimoni() {

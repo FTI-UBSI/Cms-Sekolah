@@ -133,21 +133,22 @@
 
          <!-- start Probis Sections -->
          <div class="container mx-auto p-4">
-            @foreach($video as $item)
+            {{-- @foreach($video as $item) --}}
+            {{-- @dd($video) --}}
             <!-- Grid container -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Profil Video Section -->
                 <div class="profil-section bg-white p-6 rounded-lg shadow">
-                    <h2 class="text-2xl font-bold mb-4 text-blue-700">{{ $item->title_video }}</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-blue-700">{{ $video->title_video }}</h2>
         
                     <!-- Ambil ID dari URL video, jika perlu -->
                     @php
-                        if ($item->video_link) {
-                            if (strpos($item->video_link, 'youtu.be') !== false) {
-                                $url_components = parse_url($item->video_link);
+                        if ($video  ->video_link) {
+                            if (strpos($video ->video_link, 'youtu.be') !== false) {
+                                $url_components = parse_url($video  ->video_link);
                                 $video_id = trim($url_components['path'], '/');
-                            } elseif (strpos($item->video_link, 'youtube.com') !== false) {
-                                $url_components = parse_url($item->video_link);
+                            } elseif (strpos($video ->video_link, 'youtube.com') !== false) {
+                                $url_components = parse_url($video  ->video_link);
                                 parse_str($url_components['query'] ?? '', $url_params);
                                 $video_id = $url_params['v'] ?? null;
                             }
@@ -157,20 +158,20 @@
                     @endphp
         
                     <div class="video-wrapper mb-4 relative" style="padding-top: 56.25%; position: relative;">
-                        @if(isset($video_id))
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/{{ $video_id }}" frameborder="0" allowfullscreen></iframe>
+                        @if(isset($video))
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/{{ $video->video_link }}" frameborder="0" allowfullscreen></iframe>
                         @else
                             <p>Video tidak tersedia</p>
                         @endif
                     </div>
         
-                    <p class="text-gray-700 mb-4">{{ $item->description_video }}</p>
+                    <p class="text-gray-700 mb-4">{{ $video->description_video }}</p>
                 </div>
         
                 <!-- Berita Terbaru Section -->
                <!-- Berita end Section -->
             </div>
-            @endforeach
+            {{-- @endforeach --}}
         </div>
           <!-- End Probis Sections -->
         <!-- End Existing Sections -->

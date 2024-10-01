@@ -10,6 +10,10 @@ use App\Livewire\Fasilitas;
 use App\Livewire\Foto;
 use App\Livewire\Halamanppdb;
 use App\Livewire\KontenBerita;
+use App\Livewire\Media;
+use App\Livewire\MediaBerita;
+use App\Livewire\MediaFoto;
+use App\Livewire\MediaVideo;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
 use App\Models\Announcement;
@@ -34,6 +38,10 @@ Route::get('/ppdb', Halamanppdb::class)->name('HalamanPPDB');
 Route::get('/ekstrakurikuler', Ekstrakurikuler::class);
 Route::get('/slider', [Slider::class, 'showSlider']);
 Route::get('/probris', [ProbriController::class, 'index'])->name('probris.index');
+Route::get('/media-berita', MediaBerita::class)->name('Media-Berita');
+Route::get('/media-foto', MediaFoto::class)->name('foto');
+Route::get('/media-video', MediaVideo::class)->name('Media-Video');
+// Route::get('/media', Media::class)->name('Media');
 
 Route::get('/announcements', function () {
     // Ambil semua pengumuman yang aktif
