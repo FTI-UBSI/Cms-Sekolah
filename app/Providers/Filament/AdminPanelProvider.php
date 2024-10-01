@@ -3,16 +3,20 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Resources\AgendaResource;
+use App\Filament\Resources\AlurppdbResource;
 use App\Filament\Resources\AnnouncementResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\ExtracurricularResource;
 use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
+use App\Filament\Resources\InfoppdbResource;
+use App\Filament\Resources\JadwalppdbResource;
 use App\Filament\Resources\NewsResource;
 use App\Filament\Resources\PpdbResource;
 use App\Filament\Resources\ProbriResource;
 use App\Filament\Resources\SeragamResource;
 use App\Filament\Resources\SliderResource;
+use App\Filament\Resources\SyaratppdbResource;
 use App\Filament\Resources\TestimoniResource;
 use App\Filament\Resources\VideoResource;
 use App\Livewire\Auth\Login;
@@ -173,14 +177,26 @@ class AdminPanelProvider extends PanelProvider
                 ]),
                         NavigationGroup::make('Page PPDB')
                         ->items([
-                            NavigationItem::make('Informasi PPDB')
+                            NavigationItem::make('Point PPDB')
                             ->icon('heroicon-o-home')
                             ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.ppdb.index'))
                             ->url(PpdbResource::getUrl()), 
-                            NavigationItem::make('Namanya bebas')
-                                ->icon('heroicon-o-video-camera')
-                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
-                                ->url(VideoResource::getUrl()),
+                            NavigationItem::make('Info PPDB')
+                            ->icon('heroicon-o-book-open')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.infoppdbs.index'))
+                            ->url(InfoppdbResource::getUrl()),
+                            NavigationItem::make('Syarat PPDB')
+                            ->icon('heroicon-o-book-open')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.syaratppdbs.index'))
+                            ->url(SyaratppdbResource::getUrl()),
+                            NavigationItem::make('Jadwal PPDB')
+                            ->icon('heroicon-o-book-open')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.jadwalppdbs.index'))
+                            ->url(JadwalppdbResource::getUrl()),
+                            NavigationItem::make('Alur PPDB')
+                            ->icon('heroicon-o-book-open')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.alurppdbs.index'))
+                            ->url(AlurppdbResource::getUrl()),
                     ]),
                 ]);
             })
