@@ -6,12 +6,17 @@ use App\Models\Agenda;
 use App\Models\Announcement;
 use App\Models\Extracurricular;
 use App\Models\News;
+use App\Models\Probri;
+use App\Models\Seragam;
 use App\Models\Slider;
+use App\Models\Testimoni;
+use App\Models\Video;
 use Carbon\Carbon;
 use Livewire\Component;
 
 class Beranda extends Component
 {
+ 
 
     public $slider;
     public $agenda;
@@ -19,7 +24,35 @@ class Beranda extends Component
     public $month;
     public $news;
     public $announcements;
+    public $probis;
+    public $testimoni;
+    public $seragam;
+    public $video;
 
+
+    public function loadProbris() {
+        // Mengambil semua data slider
+        $this->probis = Probri::all()
+        ->where('is_active', 1);
+    }
+
+    public function loadVideo() {
+        // Mengambil semua data slider
+        $this->video = Video::all()
+        ->where('is_active', 1);
+    }
+
+    public function loadTestimoni() {
+        // Mengambil semua data slider
+        $this->testimoni = Testimoni::all()
+        ->where('is_active', 1);
+    }
+
+    public function loadSeragam() {
+        // Mengambil semua data slider
+        $this->seragam = Seragam::all()
+        ->where('is_active', 1);
+    }
     //announcement
     protected function loadAnnouncement()
     {
@@ -75,7 +108,11 @@ class Beranda extends Component
     public function mount()
     {
         $this->loadSlider();
+        $this->loadProbris();
+        $this->loadVideo();
         $this->loadAnnouncement();
+        $this->loadTestimoni();
+        $this->loadSeragam();
         $this->loadAgenda();
         $this->loadExtracurricular();
         $this->loadNews();

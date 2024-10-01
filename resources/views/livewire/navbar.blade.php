@@ -57,31 +57,68 @@
                 class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
                 <div>
                     <a class="relative inline-block text-white  hover:text-yellow-400 focus:outline-none before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 dark:text-white"
-                        href="{{  route('Beranda') }}" aria-current="page">Beranda</a>
+                        href="{{ route('Beranda') }}" aria-current="page">Beranda</a>
                 </div>
-                <div>
-                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">Profile</a>
+                <div class="hs-dropdown relative inline-flex">
+                    <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
+                      Profil
+                    </button>
+                  
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                      <a class="block  hover:text-yellow-400" href="#">Tentang Kami</a>
+                      <a class="block  hover:text-yellow-400" href="#">GTK</a>
+                      <a class="block  hover:text-yellow-400" href="#">Fasilitas</a>
+                      <a class="block  hover:text-yellow-400" href="#">Alumni</a>
+                      <a class="block  hover:text-yellow-400" href="#">Prestasi</a>
+                    </div>
                 </div>
-                <div>
-                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">Program</a>
+                <div class="hs-dropdown relative inline-flex">
+                    <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
+                      Program
+                    </button>
+                  
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                      <a class="block  hover:text-yellow-400" href="#">Kurikulum</a>
+                      <a class="block  hover:text-yellow-400" href="#">Eskul</a>
+                      <a class="block  hover:text-yellow-400" href="#">Program Khusus</a>
+                    </div>
                 </div>
-                <div>
-                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="{{ route('Media') }}">Media</a>
+                <div class="hs-dropdown relative inline-flex">
+                    <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
+                      Berita
+                    </button>
+                  
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                      <a class="block  hover:text-yellow-400" href="#">Berita</a>
+                      <a class="block  hover:text-yellow-400" href="#">Foto</a>
+                      <a class="block  hover:text-yellow-400" href="#">Video</a>
+                      <a class="block  hover:text-yellow-400" href="#">Medsos</a>
+                    </div>
                 </div>
-                <div>
-                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">Event</a>
+                <div class="hs-dropdown relative inline-flex">
+                    <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
+                      Event
+                    </button>
+                  
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                      <a class="block  hover:text-yellow-400" href="#">Agenda</a>
+                      <a class="block  hover:text-yellow-400" href="#">Kalender Akademik</a>
+                    </div>
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
                         href="#">Kontak</a>
                 </div>
                 <div>
-                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">PPDB</a>
+                    <div class="hs-dropdown relative inline-flex">
+                        <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
+                          PPDB
+                        </button>
+                      
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                          <a class="block  hover:text-yellow-400" href="{{ route('HalamanPPDB') }}">Info PPDB</a>
+                          <a class="block  hover:text-yellow-400" href="#">Form PPDB</a>
+                        </div>
                 </div>
             </div>
         </div>

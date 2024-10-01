@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
-class Video extends Model
+class Seragam extends Model
 {
-    use HasFactory, HasUuids;
-
+    use HasFactory,HasUuids;
     protected $fillable = [
         'order',
         'is_active',
-        'title_video',
-        'description',
-        'description_video',
+        'title',
         'image_cover',
-        'video_link',
     ];
-
+    
 }
