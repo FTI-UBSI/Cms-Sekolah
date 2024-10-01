@@ -1,17 +1,23 @@
+{{-- auto-cols-max hover:auto-cols-min --}}
 <div>
-    <h3 class="text-lg-right mx-20 mt-6 text-2x">Galeri Video</h3>
+    <h3 class="text-lg-right mx-20 mt-6 text-2xl">Galeri Foto</h3>
     <hr class="border-b-4 mx-20 mb-5">
-    <div>
-        <div class="grid grid-cols-3 gap-2 mx-20 mt-4 mb-4">
+    <div class="grid grid-cols-3 gap-2 mx-20 m-t-5 m-b-5 justify-center content-center ">
+        @foreach ($MediaFoto as $items )
+            
+        <div class="flex-1 p-2 text-center border-4 overflow-hidden border-white rounded-lg bg-slate-100 drop-shadow-md h-full">
+            <img src="{{ asset('storage/'. $items->image_cover)}}" alt="" class="rounded-lg w-full min-h-28 max-h-52 justify-center">
+            <div>
+                <h2 class="pt-2 pb-2">{{ $items->title }}</h2>
+                <p id="text" class="text-justify line-clamp-5 hover:line-clamp-none ">{{ $items->description }}</p>
+            </div>
+            <button class="">Selengkapnya</button>
+        </div>
+        @endforeach
 
-          @foreach ($video as $item)
-            <div class="border-4 rounded-lg text-center">01</div>
-            <iframe src="https://www.youtube.com/embed/{{ $item->url }}" frameborder="0" class="w-full h-80" allowfullscreen></iframe>
-          
-          @endforeach 
 
-          </div>
     </div>
+
     <hr class="border-b-4 mx-20 mt-6 mb-1">
 
     {{-- pagination --}}
@@ -39,5 +45,6 @@
       </div>
     {{-- end pagination --}}
 
-
 </div>
+
+
