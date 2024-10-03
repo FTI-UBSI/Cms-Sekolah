@@ -13,10 +13,13 @@ use App\Livewire\KontenBerita;
 use App\Livewire\Media;
 use App\Livewire\MediaBerita;
 use App\Livewire\MediaFoto;
+use App\Livewire\MediaSosial;
 use App\Livewire\MediaVideo;
+use App\Livewire\Medsos;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
 use App\Models\Announcement;
+use App\Models\Instagram;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +44,7 @@ Route::get('/probris', [ProbriController::class, 'index'])->name('probris.index'
 Route::get('/media-berita', MediaBerita::class)->name('Media-Berita');
 Route::get('/media-foto', MediaFoto::class)->name('foto');
 Route::get('/media-video', MediaVideo::class)->name('Media-Video');
+Route::get('/media-sosial', MediaSosial::class)->name('Media-Sosial');
 // Route::get('/media', Media::class)->name('Media');
 
 Route::get('/announcements', function () {
@@ -53,4 +57,10 @@ Route::get('/announcements', function () {
     return view('announcements.index', compact('announcements'));
 })->name('announcements.index');
 
+
+
+// Route::get('/instagram-posts', function () {
+//     $posts = Instagram::all();
+//     return view('instagram-posts', compact('posts'));
+// });
 

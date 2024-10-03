@@ -1,30 +1,64 @@
-{{-- auto-cols-max hover:auto-cols-min --}}
 <div>
-    <h3 class="text-lg-right mx-20 mt-6 text-2xl">Galeri Foto</h3>
-    <hr class="border-b-4 mx-20 mb-5">
-    <div class="grid grid-cols-3 gap-2 mx-20 m-t-5 m-b-5 justify-center content-center ">
-        @foreach ($MediaFoto as $items )
-            
-        <div class="flex-1 p-2 text-center border-4 overflow-hidden border-white rounded-lg bg-slate-100 drop-shadow-md h-full transform transition-transform duration-300 hover:scale-95">
-            <img src="{{ asset('storage/'. $items->image_cover)}}" alt="" class="rounded-lg w-full min-h-28 max-h-52 justify-center">
-
-            <h2 class="pt-2 pb-2 text-sm">{{ $items->title }}</h2>
-            <details>
-              <summary class="list-none cursor-default hover:text-yellow-500 border-none">Selengkapnya</summary>
-              <div>
-                  <p id="text" class="text-justify">{{ $items->description }}</p>
-              </div>
-            </details>
+    <h3 class="text-lg-right mx-20 mt-6 text-2xl">Medsos</h3>
+    <hr class="border-b-4 mx-20 mb-6">
+    <h3 class="text-lg-right mx-20 mt-6 ">Youtube</h3>
+    <hr class="border-b-4 mx-8 lg:mx-20 mb-3">
+  
+    <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-8 lg:mx-20 mt-4 mb-4">
+    
+          @foreach ($Medsos as $medso)
+            <div class="border-4 rounded-sm text-center h-96 w-full">
+  
+                <iframe src="https://www.youtube.com/embed/{{ $medso->video_link }}" frameborder="0" class="size-full" allowfullscreen></iframe>
+  
+            </div>
+          
+          @endforeach 
+    
         </div>
-        @endforeach
-
-
+  
     </div>
-
-    <hr class="border-b-4 mx-20 mt-6 mb-1">
-
+    <hr class="border-b-4 mx-20 mt-3 mb-1">
+  
+    <h3 class="text-lg-right mx-20 mt-6 ">Instagram</h3>
+    <hr class="border-b-4 mx-20 mb-3">
+    <div>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mx-20 mt-4 mb-4">
+  
+          @foreach ($MediaSosial as $Sosial )
+          <div class="h-72 rounded-lg text-center transform transition-transform duration-300 hover:scale-95">
+            
+            <a href="{{ $Sosial->Instagram_url }}" target="_blank">
+              <img src="{{ asset('storage/'.$Sosial->gambarinstagram_cover)}}" alt="Postingan Instagram" class="h-72 w-full"></img>
+            </a>
+          
+          </div>
+          @endforeach
+        </div>
+    </div>
+    <hr class="border-b-4 mx-20 mt-3 mb-1">
+  
+    <h3 class="text-lg-right mx-20 mt-6 ">Facebook</h3>
+    <hr class="border-b-4 mx-20 mb-3">
+    <div>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mx-20 mt-4 mb-4">
+  
+            @foreach ($MediaSosial as $Sosial )
+            <div class="rounded-lg text-center transform transition-transform duration-300 hover:scale-95 border-amber-400">
+              
+              <a href="{{ $Sosial->Facebook_url }}" target="_blank">
+                <img src="{{ asset('storage/'.$Sosial->gambarfacebook_cover)}}" alt="Postingan Instagram" class="h-72 w-full"></img>
+              </a>
+            
+            </div>
+            @endforeach
+        </div>
+    </div>
+    <hr class="border-b-4 mx-20 mt-3 mb-6">
+  
     {{-- pagination --}}
-    <div class=" mx-20 mt-2 mb-6 text-right ">
+    {{-- <div class=" mx-20 mt-2 mb-6 text-right ">
         <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
           <a href="#" class="size-8 justify-center relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
             <span class="sr-only">Previous</span>
@@ -45,9 +79,9 @@
             </svg>
           </a>
         </nav>
-      </div>
+      </div> --}}
     {{-- end pagination --}}
-
-</div>
-
-
+  
+  
+  </div>
+  

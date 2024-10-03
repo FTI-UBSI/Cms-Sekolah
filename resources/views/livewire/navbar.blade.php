@@ -92,7 +92,7 @@
                       <a class="block  hover:text-yellow-400" href="{{ route('Media-Berita') }}">Berita</a>
                       <a class="block  hover:text-yellow-400" href="{{ route('foto') }}">Foto</a>
                       <a class="block  hover:text-yellow-400" href="{{ route('Media-Video') }}">Video</a>
-                      <a class="block  hover:text-yellow-400" href="#">Medsos</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Media-Sosial') }}">Medsos</a>
                     </div>
                 </div>
                 <div class="hs-dropdown relative inline-flex">

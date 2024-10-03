@@ -1,13 +1,13 @@
 <div>
     <h3 class="text-lg-right mx-20 mt-6 text-2xl">Galeri Video</h3>
-    <hr class="border-b-4 mx-20 mb-5">
+    <hr class="border-b-4 mx-8 lg:mx-20 mb-5">
     <div>
-        <div class="grid grid-cols-3 gap-2 mx-20 mt-4 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-8 lg:mx-20 mt-4 mb-4">
 
           @foreach ($MediaVideo as $item)
-            <div class="border-4 rounded-lg text-center">
+            <div class="border-4 rounded-sm text-center h-96 w-full">
 
-                <iframe src="https://www.youtube.com/embed/{{ $item->video_link }}" frameborder="0" class="w-full h-80" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/{{ $item->video_link }}" frameborder="0" class="size-full" allowfullscreen></iframe>
 
             </div>
           

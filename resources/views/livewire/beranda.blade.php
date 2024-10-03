@@ -143,7 +143,7 @@
         
                     <!-- Ambil ID dari URL video, jika perlu -->
                     @php
-                        if ($video  ->video_link) {
+                        if ($video->video_link) {
                             if (strpos($video ->video_link, 'youtu.be') !== false) {
                                 $url_components = parse_url($video  ->video_link);
                                 $video_id = trim($url_components['path'], '/');

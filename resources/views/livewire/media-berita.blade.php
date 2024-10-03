@@ -5,14 +5,15 @@
         <div class="flex max-w-full mx-20 ">
           
           {{-- Berita Section --}}
-          <div class="flex-2 mr-10 w-9/12 ">
+          <div class="flex-2 mr-10 w-9/12">
             @foreach ($MediaBerita as $items)
   
-              <div class="flex mb-5 border-4 border-white rounded-lg overflow-hidden bg-slate-100 drop-shadow-md">
-                <img src="{{ asset('storage/'. $items->image_cover)}}" alt="News Image" class="rounded-xl w-72 h-auto p-2 object-cover">
+              <div class="flex mb-5 border-4 border-white rounded-lg overflow-hidden bg-slate-100 drop-shadow-md transform transition-transform duration-300 hover:scale-95">
+                <img src="{{ asset('storage/'. $items->image_cover)}}" alt="News Image" class="rounded-xl w-72 h-40 p-2 object-cover justify-center">
                 <div class="p-2">
-                  <h2 class="font-bold">{{ $items->title }}</h2>
-                  <p>{{ $items->description }}</p>
+                  <h2 class="font-bold text-lg">{{ $items->title }}</h2>
+
+                  <p class="line-clamp-5 hover:line-clamp-none text-justify">{{ $items->description }}</p>
                 </div>
               </div>
   
@@ -24,7 +25,7 @@
 
           {{-- siderbar Section --}}
           <div class="flex-1 w-4/12 mb-6">
-            @foreach ($MediaBerita as $items)
+            @foreach ($MediaBerita->take(1) as $items)
 
             <div class="text-center mb-5 p-5 border-4 border-white rounded-lg bg-slate-100 drop-shadow-md">
               <img src="{{ asset('storage/'. $items->foto_cover)}}" alt="profil Image" class="rounded-lg w-full h-auto mb-2.5">

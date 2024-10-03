@@ -19,9 +19,7 @@ class MediaBerita extends Component
     }
     public function render()
     {
-        return view('livewire.media-berita',[
-            'media-berita' => MediaBeritanews::latest()->where('is_active', 1)->paginate(4),
-        ]);
+        return view('livewire.media-berita');
         
     }
 }
