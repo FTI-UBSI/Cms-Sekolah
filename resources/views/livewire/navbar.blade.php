@@ -79,7 +79,7 @@
                   
                     <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
                       <a class="block  hover:text-yellow-400" href="#">Kurikulum</a>
-                      <a class="block  hover:text-yellow-400" href="#">Eskul</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Eskul') }}">Eskul</a>
                       <a class="block  hover:text-yellow-400" href="#">Program Khusus</a>
                     </div>
                 </div>
@@ -107,18 +107,12 @@
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">Kontak</a>
+                        href="{{ route('Kontak') }}">Kontak</a>
                 </div>
+                <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                        href="{{ route('HalamanPPDB') }}">PPBD</a>
                 <div>
-                    <div class="hs-dropdown relative inline-flex">
-                        <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
-                          PPDB
-                        </button>
-                      
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                          <a class="block  hover:text-yellow-400" href="{{ route('HalamanPPDB') }}">Info PPDB</a>
-                          <a class="block  hover:text-yellow-400" href="#">Form PPDB</a>
-                        </div>
+                    
                 </div>
             </div>
         </div>

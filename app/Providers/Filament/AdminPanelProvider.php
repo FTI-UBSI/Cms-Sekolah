@@ -114,10 +114,6 @@ class AdminPanelProvider extends PanelProvider
                                 ->icon('heroicon-o-calendar-days')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.agendas.index'))
                                 ->url(AgendaResource::getUrl()),
-                            NavigationItem::make('Ekstrakurikuler')
-                                ->icon('heroicon-o-puzzle-piece')
-                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.extracurriculars.index'))
-                                ->url(ExtracurricularResource::getUrl()),
                             NavigationItem::make('Berita')
                                 ->icon('heroicon-o-document-text')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.news.index'))

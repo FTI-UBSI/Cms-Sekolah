@@ -57,12 +57,16 @@ class SliderResource extends Resource
                         Forms\Components\FileUpload::make('image_cover')
                             ->label('Gambar Cover')
                             ->image()
-                            ->maxSize(1024)
+                            ->maxSize(10000)
                             ->imageResizeTargetWidth('500')
                             ->imageResizeTargetHeight('500')
                             ->imageEditor()
                             ->disk('public')
+                            ->imageEditorAspectRatios([
+                                null,
+                                '16:9',])
                             ->directory('slider'),
+                            
 
                     ])
 

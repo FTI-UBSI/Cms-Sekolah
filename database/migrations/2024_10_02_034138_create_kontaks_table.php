@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('page_views', function (Blueprint $table) {
-            $table->id();
-            $table->string('page')->unique();
-            $table->unsignedBigInteger('views')->default(0);
+        Schema::create('kontaks', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('phone');
+            $table->string('jenis_informasi');
+            $table->string('subject');
+            $table->text('message');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('page_views');
+        Schema::dropIfExists('kontaks');
     }
 };

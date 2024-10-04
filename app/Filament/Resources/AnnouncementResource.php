@@ -56,7 +56,11 @@ class AnnouncementResource extends Resource
                     ->required()
                     ->maxLength(1000),
                 Forms\Components\FileUpload::make('image_cover')
-                    ->image(),
+                    ->image()
+                    ->maxSize(15000)
+                    ->imageResizeTargetWidth('500')
+                    ->imageResizeTargetHeight('500'),
+                    
                 Forms\Components\TextInput::make('button_text')
                     ->maxLength(255)
                     ->default(null),

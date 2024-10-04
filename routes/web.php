@@ -2,14 +2,20 @@
 
 use App\Filament\Resources\AnnouncementController;
 use App\Filament\Resources\ProbriController;
+use App\Http\Controllers\ContactController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Beranda;
 use App\Livewire\Berita;
 use App\Livewire\Ekstrakurikuler;
 use App\Livewire\Fasilitas;
 use App\Livewire\Foto;
+use App\Livewire\Halalur;
 use App\Livewire\Halamanppdb;
+use App\Livewire\Haljadwal;
+use App\Livewire\Halsyarat;
 use App\Livewire\KontenBerita;
+use App\Livewire\PageEskul;
+use App\Livewire\PageKontak;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
 use App\Models\Announcement;
@@ -31,10 +37,14 @@ Route::get('/berita', Berita::class);
 Route::get('/berita/{id}', KontenBerita::class);
 Route::get('/tenaga-kependidikan', Tendik::class);
 Route::get('/ppdb', Halamanppdb::class)->name('HalamanPPDB');
-Route::get('/ekstrakurikuler', Ekstrakurikuler::class);
+Route::get('/syarat', Halsyarat::class)->name('Syarat');
+Route::get('/alur', Halalur::class)->name('Alur');
+Route::get('/jadwal', Haljadwal::class)->name('Jadwal');
+Route::get('/kontak', PageKontak::class)->name('Kontak');
+Route::get('/eskul', PageEskul::class)->name('Eskul');
 Route::get('/slider', [Slider::class, 'showSlider']);
 Route::get('/probris', [ProbriController::class, 'index'])->name('probris.index');
-
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/announcements', function () {
     // Ambil semua pengumuman yang aktif
     $announcements = Announcement::where('is_active', true)

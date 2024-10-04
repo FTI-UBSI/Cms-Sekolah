@@ -13,7 +13,7 @@
       
       @foreach($slider as $slide)
       <div class="hs-carousel-slide">
-        <div class="flex flex-col justify-center h-full p-6" style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center;">
+        <div class="flex flex-col justify-center h-full p-6" style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; ">
             <span class="place-items-start font-sans text-6xl text-white text-opacity-70 transition duration-700">{{ $slide->title }}</span>
             <span class="place-items-start font-serif text-2xl text-white transition duration-700">{{ $slide->description }}</span>
         </div>
@@ -69,7 +69,7 @@
                           @foreach($announcements as $slide)
                           <div class="hs-carousel-slide flex-grow w-full h-full">
                             <div class="flex flex-col justify-start items-center h-full p-6" 
-                                 style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center; height: 100vh; width: 100vw;">
+                                 style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; background-position: center; height: 100vh; width: 95vw;">
                                 
                                 <!-- Card putih transparan di belakang judul, deskripsi, dan tombol -->
                                 <div class="bg-white bg-opacity-70 rounded-lg p-6 text-center max-w-[100%] md:max-w-[80%]">
@@ -130,6 +130,7 @@
         </section>
         
         <!-- End Announcement Sections -->
+        
 
          <!-- start Probis Sections -->
          <div class="container mx-auto p-4">
@@ -137,7 +138,7 @@
             <!-- Grid container -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Profil Video Section -->
-                <div class="profil-section bg-white p-6 rounded-lg shadow">
+                <div class="profil-section bg-white p-6 rounded-lg shadow transform transition-transform duration-300 hover:scale-105">
                     <h2 class="text-2xl font-bold mb-4 text-blue-700">{{ $item->title_video }}</h2>
         
                     <!-- Ambil ID dari URL video, jika perlu -->
@@ -179,18 +180,18 @@
 
      <!-- End Probis Sections -->
      <div class="max-w-7xl mx-auto py-12">
-        <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">TESTIMONI ORANGTUA</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach($testimoni as $item)
-            <div class="bg-white shadow-md rounded-lg p-6 text-center">
-                <img src="{{ asset('storage/' . $item->image_cover) }}" alt="{{ $item->title }}" class="w-24 h-24 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
-                <!-- Membatasi deskripsi menjadi satu baris dengan ellipsis -->
-                <p class="text-gray-500 mt-2 truncate">{{ $item->description }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
+      <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">TESTIMONI ORANGTUA</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          @foreach($testimoni as $item)
+          <div class="bg-white shadow-md rounded-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
+              <img src="{{ asset('storage/' . $item->image_cover) }}" alt="{{ $item->title }}" class="w-24 h-24 rounded-full mx-auto mb-4">
+              <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
+              <p class="text-gray-500 mt-2">{{ $item->description }}</p>
+          </div>
+          @endforeach
+      </div>
+  </div>
+  
     
     
     <!-- End Existing Sections -->
@@ -198,12 +199,12 @@
 
         <!-- Grid untuk seragam (Senin - Jumat) -->
         <div class="container mx-auto my-5">
-            <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">SERAGAM SEKOLAH</h2>
+            <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold transform transition-transform duration-300 hover:scale-105">SERAGAM SEKOLAH</h2>
         
             <!-- Baris pertama: 3 item -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 @foreach ($seragam->take(3) as $item) 
-                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
+                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
                         <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 mt-3 object-cover" alt="{{ $item->title }}">
                         <div class="p-4 text-center">
                             <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
@@ -215,7 +216,7 @@
             <!-- Baris kedua: 2 item -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center ">
                 @foreach ($seragam->skip(3)->take(3) as $item) 
-                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
+                    <div class="bg-white card  rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105 shadow-md" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
                         <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 object-cover" alt="{{ $item->title }}">
                         <div class="p-4 text-center">
                             <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
@@ -223,8 +224,10 @@
                     </div>
                 @endforeach
             </div>
-            
-            
+            <div>
+              <h1>Selamat Datang di Beranda!</h1>
+              <h5>Total Pengunjung: {{ $viewCount->count }}</h5>
+          </div>
         </div>
         
         
