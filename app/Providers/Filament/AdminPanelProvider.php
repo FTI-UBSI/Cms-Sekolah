@@ -7,10 +7,15 @@ use App\Filament\Resources\AlurppdbResource;
 use App\Filament\Resources\AnnouncementResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\ExtracurricularResource;
+use App\Filament\Resources\MediaSosialResource;
 use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
 use App\Filament\Resources\InfoppdbResource;
+use App\Filament\Resources\InstagramPostResource;
 use App\Filament\Resources\JadwalppdbResource;
+use App\Filament\Resources\MediaBeritaResource;
+use App\Filament\Resources\MediaFotoResource;
+use App\Filament\Resources\MedsosResource;
 use App\Filament\Resources\NewsResource;
 use App\Filament\Resources\PpdbResource;
 use App\Filament\Resources\ProbriResource;
@@ -23,6 +28,7 @@ use App\Livewire\Auth\Login;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
@@ -143,11 +149,19 @@ class AdminPanelProvider extends PanelProvider
                             NavigationItem::make('Photo')
                                 ->icon('heroicon-o-photo')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
-                                ->url(PhotoResource::getUrl()), 
+                                ->url(MediaFotoResource::getUrl()), 
                             NavigationItem::make('Video')
                                 ->icon('heroicon-o-video-camera')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
                                 ->url(VideoResource::getUrl()),
+                                NavigationItem::make('Medsos')
+                                ->icon('heroicon-o-at-symbol')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.medsos.index'))
+                                ->url(MediaSosialResource::getUrl()),
+                            NavigationItem::make('Media Berita')
+                            ->icon('heroicon-o-newspaper')
+                            ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.mediaberitas.index'))
+                            ->url(MediaBeritaResource::getUrl()),
                         ]),
                     NavigationGroup::make('Page Event')
                         ->items([

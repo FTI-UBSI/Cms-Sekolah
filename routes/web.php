@@ -14,11 +14,18 @@ use App\Livewire\Halamanppdb;
 use App\Livewire\Haljadwal;
 use App\Livewire\Halsyarat;
 use App\Livewire\KontenBerita;
+use App\Livewire\Media;
+use App\Livewire\MediaBerita;
+use App\Livewire\MediaFoto;
+use App\Livewire\MediaSosial;
+use App\Livewire\MediaVideo;
+use App\Livewire\Medsos;
 use App\Livewire\PageEskul;
 use App\Livewire\PageKontak;
 use App\Livewire\Tendik;
 use App\Livewire\Video;
 use App\Models\Announcement;
+use App\Models\Instagram;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +51,12 @@ Route::get('/kontak', PageKontak::class)->name('Kontak');
 Route::get('/eskul', PageEskul::class)->name('Eskul');
 Route::get('/slider', [Slider::class, 'showSlider']);
 Route::get('/probris', [ProbriController::class, 'index'])->name('probris.index');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/media-berita', MediaBerita::class)->name('Media-Berita');
+Route::get('/media-foto', MediaFoto::class)->name('foto');
+Route::get('/media-video', MediaVideo::class)->name('Media-Video');
+Route::get('/media-sosial', MediaSosial::class)->name('Media-Sosial');
+// Route::get('/media', Media::class)->name('Media');
+
 Route::get('/announcements', function () {
     // Ambil semua pengumuman yang aktif
     $announcements = Announcement::where('is_active', true)
@@ -55,4 +67,10 @@ Route::get('/announcements', function () {
     return view('announcements.index', compact('announcements'));
 })->name('announcements.index');
 
+
+
+// Route::get('/instagram-posts', function () {
+//     $posts = Instagram::all();
+//     return view('instagram-posts', compact('posts'));
+// });
 

@@ -21,6 +21,20 @@ class VideoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static function getYoutubeId($url)
+    {
+        
+        if(strpos($url,'watch?v=')!== false ){
+            // dd($url);
+            return substr($url, 32, 11);
+        }
+        elseif (strpos($url,'https://youtu.be')!== false ){
+            // dd($url);
+            return substr($url, 17, 11);
+        }
+        return $url;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -45,6 +59,7 @@ class VideoResource extends Resource
                             Forms\Components\TextInput::make('video_link')
                             ->maxLength(255)
                             ->label('Link')
+                            ->afterStateUpdated(fn(Set $set, $state)=> $set('video_link', self::getYoutubeId($state)))
                             ->placeholder('Masukan Link')
                             ->default(null),
                     ])
