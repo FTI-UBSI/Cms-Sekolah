@@ -20,6 +20,6 @@
             <a href="{{ route( $item->button_link2 ) }}" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-orange-600">
                 {{ $item->button_text2 }}
             </a>
-    </div>
+        </div>
     </div>
 </div>

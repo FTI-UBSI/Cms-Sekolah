@@ -78,9 +78,9 @@
                     </button>
                   
                     <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                      <a class="block  hover:text-yellow-400" href="#">Kurikulum</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Kurikulum') }}">Kurikulum</a>
                       <a class="block  hover:text-yellow-400" href="{{ route('Eskul') }}">Eskul</a>
-                      <a class="block  hover:text-yellow-400" href="#">Program Khusus</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Program Khusus') }}">Program Khusus</a>
                     </div>
                 </div>
                 <div class="hs-dropdown relative inline-flex">

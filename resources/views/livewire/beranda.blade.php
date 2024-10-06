@@ -12,13 +12,13 @@
     <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
       
       @foreach($slider as $slide)
-      <div class="hs-carousel-slide">
-        <div class="flex flex-col justify-center h-full p-6" style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover; ">
-            <span class="place-items-start font-sans text-6xl text-white text-opacity-70 transition duration-700">{{ $slide->title }}</span>
-            <span class="place-items-start font-serif text-2xl text-white transition duration-700">{{ $slide->description }}</span>
-        </div>
+<div class="hs-carousel-slide">
+    <div class="flex flex-col justify-center h-full p-6" style="background-image: url('{{ asset('storage/' . $slide->image_cover) }}'); background-size: cover;">
+        <span data-aos="fade-up" class="place-items-start font-sans text-6xl text-white text-opacity-70 transition duration-700">{{ $slide->title }}</span>
+        <span data-aos="fade-up" class="place-items-start font-serif text-2xl text-white transition duration-700">{{ $slide->description }}</span>
     </div>
-      @endforeach
+</div>
+@endforeach
 
     </div>
   </div>
@@ -55,9 +55,9 @@
         <!-- Existing HTML Slider and Other Sections -->
 
         <!-- Livewire Announcements Section -->
-        <section class="my-8">
-            <div class="container mx-auto">
-                <h2 class="text-3xl  mb-6 text-center text-blue-900 font-serif font-extrabold">PENGUMUMAN SEKOLAH</h2>
+        <section class="my-8" data-aos="fade-up">
+          <div class="container mx-auto">
+              <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold" data-aos="fade-up">PENGUMUMAN SEKOLAH</h2>
                 <div class="relative">
                     <div data-hs-carousel='{
                         "loadingClasses": "opacity-0",
@@ -139,7 +139,8 @@
             <!-- Grid container -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Profil Video Section -->
-                <div class="profil-section bg-white p-6 rounded-lg shadow">
+                <div class="profil-section bg-white p-6 rounded-lg shadow" data-aos="fade-right"
+                data-aos-duration="2000">
                     <h2 class="text-2xl font-bold mb-4 text-blue-700">{{ $video->title_video }}</h2>
         
                     <!-- Ambil ID dari URL video, jika perlu -->
@@ -170,9 +171,32 @@
                 </div>
         
                 <!-- Berita Terbaru Section -->
+                <div class="profil-section bg-white p-6 rounded-lg shadow" data-aos="fade-left"
+                data-aos-duration="1500">
+                <h2 class="text-2xl font-bold mb-4 text-blue-700">Sekilas Berita</h2>
+                  @foreach ($news->take(4) as $item)
+                  <div class="flex flex-col md:flex-row-reverse items-start mb-4">
+                      <!-- Image on the right -->
+                      <div class="w-full h-full md:w-1/3 mb-4 md:mb-0">
+                          <img src="{{ asset('storage/' . $item->image_cover) }}" alt="News Image" class="rounded-lg">
+                      </div>
+                      <!-- Text content on the left -->
+                      <div class="w-full md:w-2/3 md:pr-4">
+                          <h3 class="font-semibold text-lg">{{ $item->title }}</h3>
+                          <p class="text-gray-600 text-sm truncate">{{ $item->description }}</p>
+                          <a href="{{ route('Media-Berita') }}" class="text-blue-500 font-bold hover:text-blue-900">Baca selengkapnya</a>
+                          <!-- Upload date below the text -->
+                          <p class="text-gray-500 text-xs mt-2">Tanggal upload: {{ $item->created_at->format('d M Y') }}</p>
+                      </div>
+                  </div>
+                  @endforeach
+              </div>
+              
                <!-- Berita end Section -->
             </div>
             {{-- @endforeach --}}
+
+            
         </div>
           <!-- End Probis Sections -->
         <!-- End Existing Sections -->
@@ -183,14 +207,14 @@
      <div class="max-w-7xl mx-auto py-12">
       <h2 class="text-3xl mb-6 text-center text-blue-900 font-serif font-extrabold">TESTIMONI ORANGTUA</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          @foreach($testimoni as $item)
-          <div class="bg-white shadow-md rounded-lg p-6 text-center transform transition-transform duration-300 hover:scale-105">
-              <img src="{{ asset('storage/' . $item->image_cover) }}" alt="{{ $item->title }}" class="w-24 h-24 rounded-full mx-auto mb-4">
-              <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
-              <p class="text-gray-500 mt-2">{{ $item->description }}</p>
-          </div>
-          @endforeach
-      </div>
+        @foreach($testimoni as $item)
+        <div class="bg-white shadow-md rounded-lg p-6 text-center transform transition-transform duration-300 hover:scale-105" >
+            <img src="{{ asset('storage/' . $item->image_cover) }}" alt="{{ $item->title }}" class="w-24 h-24 rounded-full mx-auto mb-4 " data-aos="zoom-in" data-aos-duration="2000">
+            <h3 class="text-xl font-semibold">{{ $item->title }}</h3>
+            <p class="text-gray-500 mt-2">{{ $item->description }}</p>
+        </div>
+        @endforeach
+    </div>    
   </div>
   
     
@@ -204,21 +228,23 @@
         
             <!-- Baris pertama: 3 item -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                @foreach ($seragam->take(3) as $item) 
-                    <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
-                        <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 mt-3 object-cover" alt="{{ $item->title }}">
-                        <div class="p-4 text-center">
-                            <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
-                        </div>
-                    </div>
-                @endforeach
+              @foreach ($seragam->take(3) as $item) 
+                  <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);" >
+                      <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 mt-3 object-cover"data-aos="fade-up"
+                  data-aos-duration="1500" alt="{{ $item->title }}">
+                      <div class="p-4 text-center">
+                          <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
+                      </div>
+                  </div>
+              @endforeach
             </div>
             
             <!-- Baris kedua: 2 item -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-center ">
                 @foreach ($seragam->skip(3)->take(3) as $item) 
-                    <div class="bg-white card  rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105 shadow-md" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
-                        <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 object-cover" alt="{{ $item->title }}">
+                    <div class="bg-white card  rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105 shadow-md" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);" >
+                        <img src="{{ asset('storage/' . $item->image_cover) }}" class="w-full h-128 object-cover" data-aos="fade-up"
+                        data-aos-duration="1500" alt="{{ $item->title }}">
                         <div class="p-4 text-center">
                             <h5 class="text-2xl font-bold text-blue-900">{{ $item->title }}</h5>
                         </div>

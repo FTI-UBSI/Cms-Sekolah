@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KurikulumResource\Pages;
-use App\Filament\Resources\KurikulumResource\RelationManagers;
-use App\Models\Kurikulum;
+use App\Filament\Resources\ProgramResource\Pages;
+use App\Filament\Resources\ProgramResource\RelationManagers;
+use App\Models\Program;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KurikulumResource extends Resource
+class ProgramResource extends Resource
 {
-    protected static ?string $model = Kurikulum::class;
+    protected static ?string $model = Program::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -49,7 +49,7 @@ class KurikulumResource extends Resource
                         Forms\Components\FileUpload::make('image_cover')
                             ->label('Gambar Cover')
                             ->image()
-                            ->maxSize(15000)
+                            ->maxSize(1024)
                             ->imageResizeTargetWidth('500')
                             ->imageResizeTargetHeight('500')
                             ->imageEditor()
@@ -81,6 +81,15 @@ class KurikulumResource extends Resource
                 ->searchable(),
             Tables\Columns\ImageColumn::make('image_cover')
                 ->label('Gambar Cover'),
+            Tables\Columns\TextColumn::make('button_text')
+                ->label('Teks Tombol 1')
+                ->limit(15)
+                ->tooltip(fn($record) => $record->button_text)
+                ->sortable(), 
+            Tables\Columns\TextColumn::make('button_link')
+                ->label('Link Tombol 1')
+                ->limit(30)
+                ->tooltip(fn($record) => $record->button_link),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -113,9 +122,9 @@ class KurikulumResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKurikulums::route('/'),
-            'create' => Pages\CreateKurikulum::route('/create'),
-            'edit' => Pages\EditKurikulum::route('/{record}/edit'),
+            'index' => Pages\ListPrograms::route('/'),
+            'create' => Pages\CreateProgram::route('/create'),
+            'edit' => Pages\EditProgram::route('/{record}/edit'),
         ];
     }
 }

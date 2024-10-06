@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KurikulumResource\Pages;
-use App\Filament\Resources\KurikulumResource\RelationManagers;
-use App\Models\Kurikulum;
+use App\Filament\Resources\StrukturResource\Pages;
+use App\Filament\Resources\StrukturResource\RelationManagers;
+use App\Models\StrukturPembelajaran;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KurikulumResource extends Resource
+class StrukturResource extends Resource
 {
-    protected static ?string $model = Kurikulum::class;
+    protected static ?string $model = StrukturPembelajaran::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -55,8 +55,20 @@ class KurikulumResource extends Resource
                             ->imageEditor()
                             ->disk('public')
                             ->directory('slider'),
-                ])
-            ]);
+                        Forms\Components\TextInput::make('button_text1')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('button_link1')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('button_text2')
+                            ->maxLength(255)
+                            ->default(null),
+                        Forms\Components\TextInput::make('button_link2')
+                            ->maxLength(255)
+                            ->default(null),
+                    ])
+                ]);
     }
 
     public static function table(Table $table): Table
@@ -81,14 +93,34 @@ class KurikulumResource extends Resource
                 ->searchable(),
             Tables\Columns\ImageColumn::make('image_cover')
                 ->label('Gambar Cover'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+            Tables\Columns\TextColumn::make('button_text1')
+                ->label('Teks Tombol 1')
+                ->limit(15)
+                ->tooltip(fn($record) => $record->button_text)
+                ->sortable(), 
+            Tables\Columns\TextColumn::make('button_link1')
+                ->label('Link Tombol 1')
+                ->limit(30)
+                ->tooltip(fn($record) => $record->button_link),
+                Tables\Columns\TextColumn::make('button_text2')
+                ->label('Teks Tombol 2')
+                ->limit(15)
+                ->tooltip(fn($record) => $record->button_text)
+                ->sortable(), 
+            Tables\Columns\TextColumn::make('button_link2')
+                ->label('Link Tombol 2')
+                ->limit(30)
+                ->tooltip(fn($record) => $record->button_link),
+            Tables\Columns\TextColumn::make('created_at')
+                ->label('Dibuat')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
+            Tables\Columns\TextColumn::make('updated_at')
+                ->label('Diubah')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -113,9 +145,9 @@ class KurikulumResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKurikulums::route('/'),
-            'create' => Pages\CreateKurikulum::route('/create'),
-            'edit' => Pages\EditKurikulum::route('/{record}/edit'),
+            'index' => Pages\ListStrukturs::route('/'),
+            'create' => Pages\CreateStruktur::route('/create'),
+            'edit' => Pages\EditStruktur::route('/{record}/edit'),
         ];
     }
 }
