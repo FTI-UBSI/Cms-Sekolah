@@ -13,6 +13,7 @@ class Facility extends Model
 
     protected $fillable = [
         'is_active',
+        'image_cover',
         'name',
         'slug',
         'description',

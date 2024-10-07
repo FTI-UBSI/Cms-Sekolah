@@ -11,23 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('educators', function (Blueprint $table) {
+        Schema::create('achievements', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->boolean('is_active')->default(1);
-            $table->string('name', 1000);
-            $table->string('slug', 1000);
-            $table->string('description', 1000)->nullable();
+            $table->string('judul');
+            $table->string('tingkat');
+            $table->string('nama_siswa');
+            $table->string('peringkat');
             $table->string('image')->nullable();
-            $table->string('position', 1000)->nullable();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
+     * 
+     * @return void
      */
     public function down(): void
     {
-        Schema::dropIfExists('educators');
+        Schema::dropIfExists('achievements');
     }
 };

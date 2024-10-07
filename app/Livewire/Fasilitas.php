@@ -11,7 +11,8 @@ class Fasilitas extends Component
 
     public function loadFacility()
     {
-        $this->facility = Facility::all();
+        $this->facility = Facility::all()
+        ->where('is_active', 1);
     }
 
     public function mount()

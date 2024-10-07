@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Educator extends Model
+class Achievement extends Model
 {
     use HasFactory, HasUuids;
     protected $fillable = [
-        'is_active',
-        'nama_gtk',
-        'posisi_gtk',
-        'foto_gtk',
+        'is_active', 
+        'judul', 
+        'tingkat', 
+        'nama_siswa', 
+        'peringkat', 
+        'image',
     ];
 }

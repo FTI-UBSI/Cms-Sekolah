@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('probris', function (Blueprint $table) {
-            $table->id();
+        Schema::create('educators', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->boolean('is_active')->default(1);
+            $table->string('nama_gtk', 1000);
+            $table->string('posisi_gtk', 1000);
+            $table->string('foto_gtk')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('probris');
+        Schema::dropIfExists('educators');
     }
 };

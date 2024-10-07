@@ -30,8 +30,8 @@ class FacilityResource extends Resource
                         Forms\Components\Toggle::make('is_active')
                             ->label('Status')
                             ->default(true)
-                            ->required(),
-                    ]),
+                            ->required(),                 
+                        ]),
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\TextInput::make('name')

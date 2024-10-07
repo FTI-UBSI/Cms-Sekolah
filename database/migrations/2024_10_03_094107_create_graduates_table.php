@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('announcements', function (Blueprint $table) {
+        Schema::create('graduates', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->integer('order')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->string('title', 1000);
-            $table->string('description', 1000);
-            $table->string('image_cover')->nullable();
-            $table->string('button_text')->nullable();
-            $table->string('button_link')->nullable();
+            $table->string('name');
+            $table->string('photo');
+            $table->year('graduation_year');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('announcements');
+        Schema::dropIfExists('graduates');
     }
 };
