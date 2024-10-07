@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Resources\AgendaResource;
 use App\Filament\Resources\AlurppdbResource;
 use App\Filament\Resources\AnnouncementResource;
+use App\Filament\Resources\BackgroundResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\EskulResource;
 use App\Filament\Resources\ExtracurricularResource;
@@ -109,10 +110,14 @@ class AdminPanelProvider extends PanelProvider
                                 ->icon('heroicon-o-home')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.pages.dashboard'))
                                 ->url(fn(): string => Dashboard::getUrl()),
-                                NavigationItem::make('Visitor')
+                            NavigationItem::make('Visitor')
                                 ->icon('heroicon-o-user-group')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.views.index'))
                                 ->url(ViewResource::getUrl()),
+                            NavigationItem::make('Background')
+                                ->icon('heroicon-o-user-group')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.backgrounds.index'))
+                                ->url(BackgroundResource::getUrl()),
                         ]),
                     NavigationGroup::make('Page Beranda')
                         ->items([

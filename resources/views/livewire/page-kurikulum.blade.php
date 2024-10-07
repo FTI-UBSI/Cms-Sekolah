@@ -23,7 +23,7 @@
         @foreach ($point as $index => $item)
             <div class="bg-white rounded-lg shadow-lg p-6" 
                  data-aos="fade-up" 
-                 data-aos-delay="{{ 100 * $index }}" 
+                 data-aos-delay="{{ 500 * $index }}" 
                  data-aos-duration="1000">
                 <h2 class="text-center text-xl font-bold text-blue-800 mb-4">{{ $item->title }}</h2>
                 <div class="flex flex-col lg:flex-row justify-between">

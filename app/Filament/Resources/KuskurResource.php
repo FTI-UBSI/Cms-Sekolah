@@ -49,7 +49,7 @@ class KuskurResource extends Resource
                     Forms\Components\FileUpload::make('image_cover')
                         ->label('Gambar Cover')
                         ->image()
-                        ->maxSize(1024)
+                        ->maxSize(15000)
                         ->imageResizeTargetWidth('500')
                         ->imageResizeTargetHeight('500')
                         ->imageEditor()
