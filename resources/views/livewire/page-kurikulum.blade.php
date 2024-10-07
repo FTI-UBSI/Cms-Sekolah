@@ -34,7 +34,7 @@
                     <!-- Gambar dan Tombol -->
                     <div class="flex flex-col items-center lg:items-center lg:self-center lg:ml-4">
                         <img src="{{ asset('storage/' . $item->image_cover) }}" alt="Struktur Image" class="w-52 h-36 object-cover rounded-lg mb-4">
-                        <a href="{{ route( $item->button_link ) }}" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-orange-500 transition duration-200">{{ $item->button_text }}</a>
+                        <a href="{{ route( $item->button_link ) }}" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-green-500 transition duration-200">{{ $item->button_text }}</a>
                     </div>
                 </div>
             </div>
