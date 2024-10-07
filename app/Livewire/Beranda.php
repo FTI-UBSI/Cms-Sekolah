@@ -5,13 +5,21 @@ namespace App\Livewire;
 use App\Models\Agenda;
 use App\Models\Announcement;
 use App\Models\Extracurricular;
+use App\Models\MediaBeritanews;
 use App\Models\News;
+use App\Models\Probri;
+use App\Models\Seragam;
 use App\Models\Slider;
+use App\Models\Testimoni;
+use App\Models\Video;
+use App\Models\ViewCount;
 use Carbon\Carbon;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Beranda extends Component
 {
+ 
 
     public $slider;
     public $agenda;
@@ -19,7 +27,44 @@ class Beranda extends Component
     public $month;
     public $news;
     public $announcements;
+    public $probis;
+    public $testimoni;
+    public $seragam;
+    public $video;
+    public $viewCount;
 
+
+    public function loadView(){
+        $this->viewCount = ViewCount::where('page', 'beranda')->first();
+        if (!$this->viewCount) {
+            $this->viewCount = ViewCount::create([
+                'page' => 'beranda',
+                'count' => 0,
+            ]);
+        }
+
+        // Increment view count setiap kali halaman beranda diakses
+        $this->viewCount->increment('count');
+    }
+
+    public function loadVideo() {
+        // Mengambil semua data slider
+        $this->video = Video::latest()->take(1)
+        ->where('is_active', 1)->first();
+        // dd($this->video);
+    }
+
+    public function loadTestimoni() {
+        // Mengambil semua data slider
+        $this->testimoni = Testimoni::all()
+        ->where('is_active', 1);
+    }
+
+    public function loadSeragam() {
+        // Mengambil semua data slider
+        $this->seragam = Seragam::all()
+        ->where('is_active', 1);
+    }
     //announcement
     protected function loadAnnouncement()
     {
@@ -65,20 +110,24 @@ class Beranda extends Component
     }
 
     // News
-    protected function loadNews()
-    {
-        $this->news = News::where('is_active', 1)
-            ->get();
+    public function loadNews() {
+        $this->news = MediaBeritanews::all()
+        ->where('is_active', 1);
+
     }
 
     // Mengirim data ke Beranda
     public function mount()
     {
         $this->loadSlider();
+        $this->loadVideo();
         $this->loadAnnouncement();
+        $this->loadTestimoni();
+        $this->loadSeragam();
         $this->loadAgenda();
         $this->loadExtracurricular();
         $this->loadNews();
+        $this->loadView();
         session()->flash('title','Beranda');
         // dd($this->news);
     }

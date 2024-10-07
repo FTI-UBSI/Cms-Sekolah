@@ -21,10 +21,28 @@ class VideoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static function getYoutubeId($url)
+    {
+        
+        if(strpos($url,'watch?v=')!== false ){
+            // dd($url);
+            return substr($url, 32, 11);
+        }
+        elseif (strpos($url,'https://youtu.be')!== false ){
+            // dd($url);
+            return substr($url, 17, 11);
+        }
+        return $url;
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('order')
+                    ->hidden()
+                    ->numeric()
+                    ->default(0),
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\Toggle::make('is_active')
@@ -34,26 +52,16 @@ class VideoResource extends Resource
                     ]),
                 Forms\Components\Section::make()
                     ->schema([
-                        Forms\Components\TextInput::make('title')
-                            ->label('Judul')
-                            ->placeholder('Masukan Judul')
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
-                            ->required()
+                        Forms\Components\TextInput::make('title_video')
                             ->maxLength(1000),
-                        Forms\Components\TextInput::make('slug')
-                            ->label('Slug')
-                            ->disabled()
-                            ->required(),
-                        Forms\Components\TextInput::make('url')
+                        Forms\Components\TextInput::make('description_video')
+                            ->maxLength(1000),
+                            Forms\Components\TextInput::make('video_link')
+                            ->maxLength(255)
                             ->label('Link')
+                            ->afterStateUpdated(fn(Set $set, $state)=> $set('video_link', self::getYoutubeId($state)))
                             ->placeholder('Masukan Link')
-                            ->required(),
-                        Forms\Components\Textarea::make('description')
-                            ->placeholder('Masukan Deskripsi')
-                            ->label('Deskripsi')
-                            ->required()
-                            ->maxLength(1000),
+                            ->default(null),
                     ])
 
             ]);
@@ -66,8 +74,10 @@ class VideoResource extends Resource
                 Tables\Columns\ToggleColumn::make('is_active')
                     ->label('Status')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title_video')
                     ->label('Judul')
+                    ->limit(20)
+                    ->toolTip(fn($record) => $record->title)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->label('Slug')

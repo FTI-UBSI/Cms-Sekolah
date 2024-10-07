@@ -12,22 +12,13 @@ class Video extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
+        'order',
         'is_active',
-        'title',
-        'slug',
-        'url',
-        'description'
+        'title_video',
+        'description',
+        'description_video',
+        'image_cover',
+        'video_link',
     ];
 
-    public static function boot()
-    {
-        parent::boot();
-
-        // Generate slug before saving
-        static::creating(function ($model) {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug($model->title);
-            }
-        });
-    }
 }
