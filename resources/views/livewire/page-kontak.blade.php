@@ -76,7 +76,7 @@
                     <textarea name="message" placeholder="Pesan Anda" class="border p-2 w-full h-32" required></textarea>
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-orange-500 duration-100 transform transition-transform hover:scale-105">KIRIM</button>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-green-500 duration-100 transform transition-transform hover:scale-105">KIRIM</button>
                 </div>
             </form>
         </div>
@@ -85,7 +85,7 @@
 
     <!-- Maps -->
     <div class="flex justify-center items-center min-h-[80vh] bg-gray-100">
-        <div class="bg-white border border-gray-300 rounded-lg shadow-lg w-full max-w-3xl mb-6 p-5 mx-auto">
+        <div class="bg-white border border-gray-300 rounded-lg shadow-lg w-full max-w-3xl mb-6 p-5 mx-auto" data-aos="fade-left" data-aos-duration="2000">
             @foreach ($peta as $item)
             <!-- Pastikan text-center dan text-blue-900 muncul dengan baik -->
             <h2 class="text-center text-blue-900 font-semibold text-2xl mb-4">{{ $item->title }}</h2>
@@ -102,7 +102,7 @@
     
             <!-- Tombol -->
             <div class="flex mt-4 justify-center">
-                <a href="{{ $item->button_link }}" target="_blank" class="bg-blue-900 text-white px-6 py-2 rounded-md font-semibold mt-10 hover:bg-orange-500 transition duration-200">
+                <a href="{{ $item->button_link }}" target="_blank" class="bg-blue-900 text-white px-6 py-2 rounded-md font-semibold mt-10 hover:bg-green-500 transition duration-200">
                     {{ $item->button_text }}
                 </a>
             </div>

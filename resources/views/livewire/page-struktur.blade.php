@@ -33,10 +33,10 @@
 
     <!-- Buttons section -->
     <div class="flex space-x-4 mt-8 justify-start" data-aos="fade-right" data-aos-duration="1500">
-        <a href="{{ route($item->button_link1) }}" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-orange-600 transform transition-transform duration-300 hover:scale-105">
+        <a href="{{ route($item->button_link1) }}" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-green-700 transform transition-transform duration-300 hover:scale-105">
             {{ $item->button_text1 }}
         </a>
-        <a href="{{ route($item->button_link2) }}" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-orange-600 transform transition-transform duration-300 hover:scale-105">
+        <a href="{{ route($item->button_link2) }}" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-green-700 transform transition-transform duration-300 hover:scale-105">
             {{ $item->button_text2 }}
         </a>
     </div>

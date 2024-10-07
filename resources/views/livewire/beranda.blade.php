@@ -132,21 +132,19 @@
         <div class="col-span-6 bg-white p-6 h-full rounded-lg shadow" data-aos="fade-left" data-aos-duration="2000">
           <h2 class="text-2xl font-bold mb-4 text-blue-700">Sekilas Berita</h2>
           @foreach ($news->take(3) as $item)
-            <div class="grid grid-cols-12 gap-4">
-              <!-- Image on the right -->
-              <div class="col-span-4">
-                <img src="{{ asset('storage/' . $item->image_cover) }}" alt="News Image" class="rounded-lg">
-              </div>
-              <!-- Text content on the left -->
+            <div class="grid grid-cols-12 gap-4 mb-6">
               <div class="col-span-8">
                 <h3 class="font-semibold text-lg">{{ $item->title }}</h3>
                 <p class="text-gray-600 text-sm truncate">{{ $item->description }}</p>
                 <a href="{{ route('Media-Berita') }}" class="text-blue-500 font-bold hover:text-blue-900">Baca selengkapnya</a>
-                <!-- Upload date below the text -->
                 <p class="text-gray-500 text-xs mt-2">Tanggal upload: {{ $item->created_at->format('d M Y') }}</p>
+              </div>
+              <div class="col-span-4">
+                <img src="{{ asset('storage/' . $item->image_cover) }}" alt="News Image" class="rounded-lg">
               </div>
             </div>
           @endforeach
+          
         </div>
       </div>
     </div>
