@@ -2,10 +2,13 @@
 
 use App\Filament\Resources\AnnouncementController;
 use App\Filament\Resources\ProbriController;
+use App\Livewire\Agenda;
+use App\Livewire\Akademik;
 use App\Livewire\Auth\Login;
 use App\Livewire\Beranda;
 use App\Livewire\Berita;
 use App\Livewire\Ekstrakurikuler;
+use App\Livewire\EventPage\Agenda as EventPageAgenda;
 use App\Livewire\Fasilitas;
 use App\Livewire\Foto;
 use App\Livewire\Halamanppdb;
@@ -20,6 +23,8 @@ use App\Livewire\Tendik;
 use App\Livewire\Video;
 use App\Models\Announcement;
 use App\Models\Instagram;
+use App\Models\KalenderAgenda;
+use App\Models\KalenderAkademik;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +50,8 @@ Route::get('/media-berita', MediaBerita::class)->name('Media-Berita');
 Route::get('/media-foto', MediaFoto::class)->name('foto');
 Route::get('/media-video', MediaVideo::class)->name('Media-Video');
 Route::get('/media-sosial', MediaSosial::class)->name('Media-Sosial');
-// Route::get('/media', Media::class)->name('Media');
+Route::get('/agenda', Agenda::class)->name('Agenda');
+Route::get('/akademik', Akademik::class)->name('Akademik');
 
 Route::get('/announcements', function () {
     // Ambil semua pengumuman yang aktif
@@ -57,10 +63,25 @@ Route::get('/announcements', function () {
     return view('announcements.index', compact('announcements'));
 })->name('announcements.index');
 
+// Route Kalenderagenda
+Route::get('/kalender1/{date}', function($date) {
+    // Mengambil postingan berdasarkan tanggal
+    $KalenderAgenda = KalenderAgenda::whereDate('start_date', '<=', $date)
+                 ->whereDate('end_date', '>=', $date)
+                 ->get();
 
+    return response()->json($KalenderAgenda); // Mengembalikan hasil dalam format JSON
+});
+// Route Kalenderagenda
 
-// Route::get('/instagram-posts', function () {
-//     $posts = Instagram::all();
-//     return view('instagram-posts', compact('posts'));
-// });
+// Route KalenderAkademik
+Route::get('/kalender2/{date}', function($date) {
+    // Mengambil postingan berdasarkan tanggal
+    $KalenderAkademik = KalenderAkademik::whereDate('start_date', '<=', $date)
+                 ->whereDate('end_date', '>=', $date)
+                 ->get();
+
+    return response()->json($KalenderAkademik); // Mengembalikan hasil dalam format JSON
+});
+// Route KalenderAkademik
 

@@ -2,13 +2,13 @@
 <div>
     <h3 class="text-lg-right mx-20 mt-6 text-2xl">Galeri Foto</h3>
     <hr class="border-b-4 mx-20 mb-5">
-    <div class="grid grid-cols-3 gap-2 mx-20 m-t-5 m-b-5 justify-center content-center ">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-20 m-t-5 m-b-5 justify-center content-center ">
         @foreach ($MediaFoto as $items )
             
         <div class="flex-1 p-2 text-center border-4 overflow-hidden border-white rounded-lg bg-slate-100 drop-shadow-md h-full transform transition-transform duration-300 hover:scale-95">
             <img src="{{ asset('storage/'. $items->image_cover)}}" alt="" class="rounded-lg w-full min-h-28 max-h-52 justify-center">
 
-            <h2 class="pt-2 pb-2 text-sm">{{ $items->title }}</h2>
+            <h2 class="pt-2 pb-2 md:text-xs lg:text-sm">{{ $items->title }}</h2>
             <details>
               <summary class="list-none cursor-default hover:text-yellow-500 border-none">Selengkapnya</summary>
               <div>

@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medsos', function (Blueprint $table) {
+        Schema::create('kalender_akademiks', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->string('type');
-            $table->string('Instagram_url');
-            $table->string('gambarinstagram_cover')->nullable();
-            $table->string('Facebook_url');
-            $table->string('gambarfacebook_cover')->nullable();
+            $table->string('title');
+            $table->text('description');
+            $table->date('start_date'); // Tanggal mulai posting
+            $table->date('end_date');   // Tanggal akhir posting
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('medsos');
+        Schema::dropIfExists('kalender_akademiks');
     }
 };

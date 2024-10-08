@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agendas', function (Blueprint $table) {
+        Schema::create('kalender_agendas', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->integer('order')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->string('title', 1000);
-            $table->string('description', 1000)->nullable();
-            $table->date('date');
+            $table->string('title');
+            $table->text('description');
+            $table->string('image_cover')->nullable();
+            $table->date('start_date'); // Tanggal mulai posting
+            $table->date('end_date');   // Tanggal akhir posting
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agendas');
+        Schema::dropIfExists('kalender_agendas');
     }
 };

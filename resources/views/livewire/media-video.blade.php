@@ -1,8 +1,8 @@
 <div>
     <h3 class="text-lg-right mx-20 mt-6 text-2xl">Galeri Video</h3>
-    <hr class="border-b-4 mx-8 lg:mx-20 mb-5">
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mb-5">
     <div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-8 lg:mx-20 mt-4 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:mx-8 lg:mx-20 mt-4 mb-4">
 
           @foreach ($MediaVideo as $item)
             <div class="border-4 rounded-sm text-center h-96 w-full">
@@ -18,7 +18,7 @@
     <hr class="border-b-4 mx-20 mt-6 mb-1">
 
     {{-- pagination --}}
-    <div class=" mx-20 mt-2 mb-6 text-right ">
+    {{-- <div class=" mx-20 mt-2 mb-6 text-right ">
         <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
           <a href="#" class="size-8 justify-center relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
             <span class="sr-only">Previous</span>
@@ -39,7 +39,7 @@
             </svg>
           </a>
         </nav>
-      </div>
+      </div> --}}
     {{-- end pagination --}}
 
 

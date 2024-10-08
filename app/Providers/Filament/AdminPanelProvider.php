@@ -7,12 +7,14 @@ use App\Filament\Resources\AlurppdbResource;
 use App\Filament\Resources\AnnouncementResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\ExtracurricularResource;
+use App\Filament\Resources\KalenderResource;
 use App\Filament\Resources\MediaSosialResource;
 use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
 use App\Filament\Resources\InfoppdbResource;
 use App\Filament\Resources\InstagramPostResource;
 use App\Filament\Resources\JadwalppdbResource;
+use App\Filament\Resources\KalenderAkademikResource;
 use App\Filament\Resources\MediaBeritaResource;
 use App\Filament\Resources\MediaFotoResource;
 use App\Filament\Resources\MedsosResource;
@@ -25,6 +27,7 @@ use App\Filament\Resources\SyaratppdbResource;
 use App\Filament\Resources\TestimoniResource;
 use App\Filament\Resources\VideoResource;
 use App\Livewire\Auth\Login;
+use App\Models\KalenderAgenda;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -32,8 +35,10 @@ use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationBuilder;
 use Filament\Navigation\NavigationGroup;
 use Filament\Navigation\NavigationItem;
+use Filament\Navigation\NavigationManager;
 use Filament\Pages;
 use Filament\Pages\Dashboard;
+use Filament\Pages\SubNavigationPosition;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -88,7 +93,8 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ])
+            ])  
+
             ->navigation(function (NavigationBuilder $builder): NavigationBuilder {
                 return $builder->groups([
                     NavigationGroup::make()
@@ -98,6 +104,7 @@ class AdminPanelProvider extends PanelProvider
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.pages.dashboard'))
                                 ->url(fn(): string => Dashboard::getUrl()),
                         ]),
+
                     NavigationGroup::make('Page Beranda')
                         ->items([
                             NavigationItem::make('Slider')
@@ -167,17 +174,20 @@ class AdminPanelProvider extends PanelProvider
                             ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.mediaberitas.index'))
                             ->url(MediaBeritaResource::getUrl()),
                         ]),
+
                     NavigationGroup::make('Page Event')
                         ->items([
-                            NavigationItem::make('Namanya bebas')
-                            ->icon('heroicon-o-photo')
+                            NavigationItem::make('Agenda')
+                            ->icon('heroicon-o-clipboard-document-list')
                             ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.photos.index'))
-                            ->url(PhotoResource::getUrl()), 
-                            NavigationItem::make('Namanya bebas')
-                                ->icon('heroicon-o-video-camera')
+                            ->url(KalenderResource::getUrl()), 
+                            NavigationItem::make('Kalender Akademik')
+                                ->icon('heroicon-o-calendar-date-range')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.videos.index'))
-                                ->url(VideoResource::getUrl()),
+                                ->url(KalenderAkademikResource::getUrl()),
                     ]),
+
+
                     NavigationGroup::make('Page Kontak')
                         ->items([
                             NavigationItem::make('Namanya bebas')

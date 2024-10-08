@@ -100,9 +100,9 @@
                       Event
                     </button>
                   
-                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                      <a class="block  hover:text-yellow-400" href="#">Agenda</a>
-                      <a class="block  hover:text-yellow-400" href="#">Kalender Akademik</a>
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-36 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                      <a class="block  hover:text-yellow-400 mx-2" href="{{ route('Agenda') }}">Agenda</a>
+                      <a class="block  hover:text-yellow-400 text-sm mx-2" href="{{ route('Akademik') }}" class="leading-3">Kalender Akademik</a>
                     </div>
                 </div>
                 <div>

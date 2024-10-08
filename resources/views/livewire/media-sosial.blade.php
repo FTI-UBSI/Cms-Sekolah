@@ -1,14 +1,14 @@
 <div>
-    <h3 class="text-lg-right mx-20 mt-6 text-2xl">Medsos</h3>
-    <hr class="border-b-4 mx-20 mb-6">
-    <h3 class="text-lg-right mx-20 mt-6 ">Youtube</h3>
-    <hr class="border-b-4 mx-8 lg:mx-20 mb-3">
+    <h3 class="text-lg-right sm:mx-8 lg:mx-20 mt-6 text-2xl">Medsos</h3>
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mb-6">
+    <h3 class="text-lg-right sm:mx-8 lg:mx-20 mt-6 ">Youtube</h3>
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mb-3">
   
     <div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-8 lg:mx-20 mt-4 mb-4">
+        <div class="flex grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:mx-8 lg:mx-20 mt-4 mb-4 justify-center">
     
           @foreach ($Medsos as $medso)
-            <div class="border-4 rounded-sm text-center h-96 w-full">
+            <div class="text-center h-80 w-96">
   
                 <iframe src="https://www.youtube.com/embed/{{ $medso->video_link }}" frameborder="0" class="size-full" allowfullscreen></iframe>
   
@@ -19,46 +19,46 @@
         </div>
   
     </div>
-    <hr class="border-b-4 mx-20 mt-3 mb-1">
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mt-3 mb-1">
   
-    <h3 class="text-lg-right mx-20 mt-6 ">Instagram</h3>
-    <hr class="border-b-4 mx-20 mb-3">
+    <h3 class="text-lg-right sm:mx-8 lg:mx-20 mt-6 ">Instagram</h3>
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mb-3">
     <div>
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mx-20 mt-4 mb-4">
+        <div class="flex grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:mx-8 mx-20 mt-4 mb-4 text-center justify-center">
   
           @foreach ($MediaSosial as $Sosial )
-          <div class="h-72 rounded-lg text-center transform transition-transform duration-300 hover:scale-95">
+          <div class="text-center transform transition-transform duration-300 hover:scale-95">
             
             <a href="{{ $Sosial->Instagram_url }}" target="_blank">
-              <img src="{{ asset('storage/'.$Sosial->gambarinstagram_cover)}}" alt="Postingan Instagram" class="h-72 w-full"></img>
+              <img src="{{ asset('storage/'.$Sosial->gambarinstagram_cover)}}" alt="Postingan Instagram" class="sm:h-full sm:w-60 lg:h-72 lg:w-64"></img>
             </a>
           
           </div>
           @endforeach
         </div>
     </div>
-    <hr class="border-b-4 mx-20 mt-3 mb-1">
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mt-3 mb-1">
   
-    <h3 class="text-lg-right mx-20 mt-6 ">Facebook</h3>
-    <hr class="border-b-4 mx-20 mb-3">
+    <h3 class="text-lg-right sm:mx-8 lg:mx-20 mt-6 ">Facebook</h3>
+    <hr class="border-b-4 sm:mx-8 lg:mx-20 mb-3">
     <div>
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 mx-20 mt-4 mb-4">
+        <div class="flex grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:mx-8 lg:mx-20 mt-4 mb-4 justify-center">
   
             @foreach ($MediaSosial as $Sosial )
             <div class="rounded-lg text-center transform transition-transform duration-300 hover:scale-95 border-amber-400">
               
               <a href="{{ $Sosial->Facebook_url }}" target="_blank">
-                <img src="{{ asset('storage/'.$Sosial->gambarfacebook_cover)}}" alt="Postingan Instagram" class="h-72 w-full"></img>
+                <img src="{{ asset('storage/'.$Sosial->gambarfacebook_cover)}}" alt="Postingan Instagram" class="sm:h-full sm:w-60 lg:h-72 lg:w-64"></img>
               </a>
             
             </div>
             @endforeach
         </div>
     </div>
-    <hr class="border-b-4 mx-20 mt-3 mb-6">
+    <hr class="border-b-4 sm:mx-8 mx-20 mt-3 mb-6">
   
     {{-- pagination --}}
-    {{-- <div class=" mx-20 mt-2 mb-6 text-right ">
+    {{-- <div class=" sm:mx-8 mx-20 mt-2 mb-6 text-right ">
         <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
           <a href="#" class="size-8 justify-center relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
             <span class="sr-only">Previous</span>

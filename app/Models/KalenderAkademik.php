@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class KalenderAkademik extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = [
+        'order',
         'is_active',
-        'image_cover',
         'title',
         'description',
-        'date',
+        'start_date',
+        'end_date',
     ];
 }

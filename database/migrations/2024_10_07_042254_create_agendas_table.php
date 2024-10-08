@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medsos', function (Blueprint $table) {
+        Schema::create('agendas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->integer('order')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->string('type');
-            $table->string('Instagram_url');
-            $table->string('gambarinstagram_cover')->nullable();
-            $table->string('Facebook_url');
-            $table->string('gambarfacebook_cover')->nullable();
+            $table->string('image_cover')->nullable();
+            $table->string('title', 1000);
+            $table->string('description', 1000)->nullable();
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('medsos');
+        Schema::dropIfExists('agendas');
     }
 };

@@ -35,8 +35,16 @@ class AgendaResource extends Resource
                         Forms\Components\DatePicker::make('date')
                             ->label('Tanggal')
                             ->required(),
+                            Forms\Components\FileUpload::make('image_cover')
+                            ->label('Gambar Cover')
+                            ->image()
+                            // ->maxSize(1024)
+                            // ->imageResizeTargetWidth('500')
+                            // ->imageResizeTargetHeight('500')
+                            // ->imageEditor()
+                            ->disk('public'),
                         Forms\Components\TextInput::make('title')
-                            ->label('Nama')
+                            ->label('Judul')
                             ->required()
                             ->maxLength(1000),
                         Forms\Components\Textarea::make('description')
@@ -53,6 +61,8 @@ class AgendaResource extends Resource
             ->columns([
                 Tables\Columns\ToggleColumn::make('is_active')
                     ->label('Status'),
+                Tables\Columns\ImageColumn::make('image_cover')
+                    ->label('Gambar Cover'),
                 Tables\Columns\TextColumn::make('title')
                     ->label('Nama')
                     ->limit(50)

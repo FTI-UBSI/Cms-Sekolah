@@ -6,7 +6,7 @@
             class="bg-cover bg-bottom bg-no-repeat bg-gray-700 bg-blend-multiply h-screen">
 
             <div class="absolute inset-x-0 bottom-0 left-32 right-0 px-4 mx-auto max-w-screen-xl text-left py-24 lg:py-52">
-
+            
             </div>
         </section>
     </header>

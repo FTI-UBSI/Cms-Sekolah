@@ -39,10 +39,9 @@ class MediaSosialResource extends Resource
                 ->schema([
                     Forms\Components\TextInput::make('Instagram_url')
                     ->url()
-                    ->required()
                     ->default(null),
                     Forms\Components\FileUpload::make('gambarinstagram_cover')
-                    ->label('Gambar')
+                    ->label('Instagram')
                     ->image()
                     ->imageEditor()
                     ->disk('public')
@@ -52,10 +51,9 @@ class MediaSosialResource extends Resource
                 ->schema([
                     Forms\Components\TextInput::make('Facebook_url')
                     ->url()
-                    ->required()
                     ->default(null),
                     Forms\Components\FileUpload::make('gambarfacebook_cover')
-                    ->label('Gambar')
+                    ->label('Facebook')
                     ->image()
                     ->imageEditor()
                     ->disk('public')
@@ -70,7 +68,16 @@ class MediaSosialResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('order')
+                ->numeric()
+                ->hidden()
+                ->sortable(),
+                Tables\Columns\ToggleColumn::make('is_active')
+                ->label('Status'),
+                Tables\Columns\ImageColumn::make('gambarinstagram_cover')
+                ->label('Gambar Instagram'),
+                Tables\Columns\ImageColumn::make('gambarfacebook_cover')
+                ->label('Gambar Facebook'),
             ])
             ->filters([
                 //
