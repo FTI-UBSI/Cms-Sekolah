@@ -2,6 +2,8 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\AboutResource;
+use App\Filament\Resources\AchievementResource;
 use App\Filament\Resources\AgendaResource;
 use App\Filament\Resources\AlurppdbResource;
 use App\Filament\Resources\AnnouncementResource;
@@ -9,6 +11,7 @@ use App\Filament\Resources\BackgroundResource;
 use App\Filament\Resources\EducatorResource;
 use App\Filament\Resources\EskulResource;
 use App\Filament\Resources\ExtracurricularResource;
+use App\Filament\Resources\GraduateResource;
 use App\Filament\Resources\MediaSosialResource;
 use App\Filament\Resources\PhotoResource;
 use App\Filament\Resources\FacilityResource;
@@ -150,16 +153,28 @@ class AdminPanelProvider extends PanelProvider
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.announcements.index'))
                                 ->url(AnnouncementResource::getUrl()),
                         ]),
-                    NavigationGroup::make('Page Profil')
+                        NavigationGroup::make('Page Profil')
                         ->items([
-                            NavigationItem::make('Fasilitas')
-                                ->icon('heroicon-o-building-office')
-                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.facilities.index'))
-                                ->url(FacilityResource::getUrl()),
+                            NavigationItem::make('Tentang Kami')
+                                ->icon('heroicon-o-user-circle')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.about.index'))
+                                ->url(AboutResource::getUrl()),
                             NavigationItem::make('GTK')
                                 ->icon('heroicon-o-user-group')
                                 ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.educators.index'))
                                 ->url(EducatorResource::getUrl()),
+                            NavigationItem::make('Fasilitas')
+                                ->icon('heroicon-o-building-office')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.facilities.index'))
+                                ->url(FacilityResource::getUrl()),
+                            NavigationItem::make('Alumni')
+                                ->icon('heroicon-o-academic-cap')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.graduates.index'))
+                                ->url(GraduateResource::getUrl()),
+                            NavigationItem::make('Prestasi')
+                                ->icon('heroicon-o-trophy')
+                                ->isActiveWhen(fn(): bool => request()->routeIs('filament.admin.resources.achievements.index'))
+                                ->url(AchievementResource::getUrl()),
                         ]),
 
                         NavigationGroup::make('Page Program')

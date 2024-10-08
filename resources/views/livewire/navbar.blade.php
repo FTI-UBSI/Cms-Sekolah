@@ -64,13 +64,13 @@
                       Profil
                     </button>
                   
-                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                      <a class="block  hover:text-yellow-400" href="#">Tentang Kami</a>
-                      <a class="block  hover:text-yellow-400" href="#">GTK</a>
-                      <a class="block  hover:text-yellow-400" href="#">Fasilitas</a>
-                      <a class="block  hover:text-yellow-400" href="#">Alumni</a>
-                      <a class="block  hover:text-yellow-400" href="#">Prestasi</a>
-                    </div>
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-30 hidden z-10 mt-2 min-w-20 bg-blue-800   00 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                        <a class="block" href="{{route('Profil')}}">Tentang Kami</a>
+                        <a class="block" href="{{route('GTK')}}">GTK</a>
+                        <a class="block" href="{{route('Fasilitas')}}">Fasilitas</a>
+                        <a class="block" href="{{route('Alumni')}}">Alumni</a>
+                        <a class="block" href="{{route('Prestasi')}}">Prestasi</a>
+                      </div>
                 </div>
                 <div class="hs-dropdown relative inline-flex">
                     <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">

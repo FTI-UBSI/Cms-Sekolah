@@ -15,20 +15,6 @@ class Facility extends Model
         'is_active',
         'image_cover',
         'name',
-        'slug',
-        'description',
         'image'
     ];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        // Generate slug before saving
-        static::creating(function ($model) {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug($model->name);
-            }
-        });
-    }
 }

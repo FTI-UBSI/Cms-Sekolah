@@ -16,8 +16,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(1);
             $table->string('image_cover')->nullable();
             $table->string('name', 1000);
-            $table->string('slug', 1000);
-            $table->string('description', 1000)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
