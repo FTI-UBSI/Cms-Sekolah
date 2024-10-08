@@ -30,8 +30,8 @@ class FacilityResource extends Resource
                         Forms\Components\Toggle::make('is_active')
                             ->label('Status')
                             ->default(true)
-                            ->required(),
-                    ]),
+                            ->required(),                 
+                        ]),
                 Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\TextInput::make('name')
@@ -41,20 +41,12 @@ class FacilityResource extends Resource
                             ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
                             ->required()
                             ->maxLength(1000),
-                        Forms\Components\TextInput::make('slug')
-                            ->required()
-                            ->disabled(),
-                        Forms\Components\Textarea::make('description')
-                            ->label('Deskripsi')
-                            ->placeholder('Masukan Deskripsi')
-                            ->maxLength(1000)
-                            ->default(null),
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar')
                             ->image()
                             ->maxSize(1024)
-                            ->imageResizeTargetWidth('500')
-                            ->imageResizeTargetHeight('500')
+                            ->imageResizeTargetWidth('1920')
+                            ->imageResizeTargetHeight('1080')
                             ->imageEditor()
                             ->disk('public')
                             ->directory('fasilitas'),
@@ -71,11 +63,6 @@ class FacilityResource extends Resource
                     ->label('Status'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama Fasilitas')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('description')
-                    ->label('Deskripsi')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Gambar'),

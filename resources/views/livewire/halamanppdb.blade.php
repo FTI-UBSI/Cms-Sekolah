@@ -1,9 +1,10 @@
 <div class="container">
-    <h2 class="text-3xl mb-6 mt-6 text-center text-blue-900 font-serif font-extrabold">INFORMASI PPDB</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ml-20 mb-6">
+    <h3 class="text-lg-right font-bold text-blue-900  mx-20 mt-6 mb-2 text-2xl">PENERIMAAN PESERTA DIDIK BARU</h3>
+    <hr class="border-gray-300 ml-16 mb-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 ml-16 mb-6">
         @foreach($ppdbs as $ppdb)
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
+                <div class="bg-white card shadow-md rounded-lg overflow-hidden border border-gray-200 transform transition-transform duration-300 hover:scale-105" style="box-shadow: 0px 4px 6px rgba(137, 137, 181, 0.5);">
                     
                     <!-- Card Image (Aspect Ratio like TV, 16:9) -->
                     <img src="{{ asset('storage/' . $ppdb->image_cover) }}" class="mx-auto mt-4 tv-screen" alt="{{ $ppdb->title }}" style="height: 200px; width: auto;">
@@ -25,7 +26,7 @@
                         <p class="card-text font-sans ">{{ $ppdb->description }}</p>
 
                         <!-- Action Button (aligned at the bottom) -->
-                        <a href="{{ $ppdb->button_link }}" class="mt-6 inline-block">
+                        <a href="{{  route( $ppdb->button_link )}}" class="mt-6 inline-block">
                             <button class="bg-blue-950 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-100">
                                 {{ $ppdb->button_text }}
                             </button>
@@ -41,9 +42,14 @@
         @endforeach
     </div>
 
-    <div class="container shadow-md rounded-lg mx-auto p-4 bg-white  ml-9 mb-5 ">
+    <div class= "container shadow-md rounded-lg mx-auto p-4 bg-white  ml-9 mr-9 mb-5 ">
+        <h1>Selamat Datang di Halam PPDB!</h1>
+        <h5>Total Pengunjung: {{ $viewCount->count }}</h5>
+    </div>
+
+    <div class="container shadow-md rounded-lg mx-auto p-4 bg-white  ml-9 mr-9 mb-5 ">
         @foreach($info as $item)
-            <h2 class="text-center text-xl font-bold text-indigo-700 mb-4">Informasi Pengisian Data Peserta Didik Baru</h2>
+            <h2 class="text-center text-xl font-bold text-indigo-700 mb-4">INFORMASI PENGISIAN DATA PESERTA DIDIK BARU</h2>
             <div class="bg-white p-6 border border-gray-300 rounded-md">
                 <ul class=" ml-6 text-left text-gray-800 space-y-2">
                     <!-- Menggunakan white-space: pre-line untuk menjaga newline pada deskripsi -->
@@ -57,6 +63,4 @@
             </div>
         @endforeach
     </div>
-    
-    
 </div>

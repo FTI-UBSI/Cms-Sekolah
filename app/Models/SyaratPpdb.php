@@ -16,7 +16,10 @@ class SyaratPpdb extends Model
         'image_cover',
         'title',
         'description',
-        'button_text',
-        'button_link',
+        'button_text1',
+        'button_link1',
+        'button_text2',
+        'button_link2',
+
     ];
 }

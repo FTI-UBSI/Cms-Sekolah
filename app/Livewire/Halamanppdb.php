@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Infoppdb;
 use App\Models\Ppdb;
+use App\Models\SyaratPpdb;
+use App\Models\ViewCount;
 use Livewire\Component;
 
 class Halamanppdb extends Component
@@ -11,8 +13,28 @@ class Halamanppdb extends Component
     public $ppdbs;
     public $info;
 
+    public $syarat;
+    public $viewCount;
+
+
+    public function loadView(){
+        $this->viewCount = ViewCount::where('page', 'halamanppdb')->first();
+        if (!$this->viewCount) {
+            $this->viewCount = ViewCount::create([
+                'page' => 'halamanppdb',
+                'count' => 0,
+            ]);
+        }
+
+        // Increment view count setiap kali halaman PPDB diakses
+        $this->viewCount->increment('count');
+    }
     public function loadPpdb() {
         $this->ppdbs = Ppdb::where('is_active', 1)->get();
+    }
+
+    public function loadSyarat() {
+        $this->syarat = SyaratPpdb::where('is_active', 1)->get();
     }
 
     public function loadInfo() {
@@ -37,6 +59,8 @@ class Halamanppdb extends Component
     {
         $this->loadPpdb();
         $this->loadInfo();
+        $this->loadView();
+        $this->loadSyarat();
     }
 
     public function render()

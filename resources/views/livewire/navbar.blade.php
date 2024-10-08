@@ -1,5 +1,5 @@
 <!-- ========== HEADER ========== -->
-<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-blue-900">
+<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 bg-indigo-800">
     <nav
         class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 mx-auto">
         <div class="md:col-span-3">
@@ -64,13 +64,13 @@
                       Profil
                     </button>
                   
-                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                      <a class="block  hover:text-yellow-400" href="#">Tentang Kami</a>
-                      <a class="block  hover:text-yellow-400" href="#">GTK</a>
-                      <a class="block  hover:text-yellow-400" href="#">Fasilitas</a>
-                      <a class="block  hover:text-yellow-400" href="#">Alumni</a>
-                      <a class="block  hover:text-yellow-400" href="#">Prestasi</a>
-                    </div>
+                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-30 hidden z-10 mt-2 min-w-20 bg-blue-800   00 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
+                        <a class="block" href="{{route('Profil')}}">Tentang Kami</a>
+                        <a class="block" href="{{route('GTK')}}">GTK</a>
+                        <a class="block" href="{{route('Fasilitas')}}">Fasilitas</a>
+                        <a class="block" href="{{route('Alumni')}}">Alumni</a>
+                        <a class="block" href="{{route('Prestasi')}}">Prestasi</a>
+                      </div>
                 </div>
                 <div class="hs-dropdown relative inline-flex">
                     <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
@@ -78,9 +78,9 @@
                     </button>
                   
                     <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                      <a class="block  hover:text-yellow-400" href="#">Kurikulum</a>
-                      <a class="block  hover:text-yellow-400" href="#">Eskul</a>
-                      <a class="block  hover:text-yellow-400" href="#">Program Khusus</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Kurikulum') }}">Kurikulum</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Eskul') }}">Eskul</a>
+                      <a class="block  hover:text-yellow-400" href="{{ route('Program Khusus') }}">Program Khusus</a>
                     </div>
                 </div>
                 <div class="hs-dropdown relative inline-flex">
@@ -107,18 +107,22 @@
                 </div>
                 <div>
                     <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
-                        href="#">Kontak</a>
+                        href="{{ route('Kontak') }}">Kontak</a>
                 </div>
+                <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                        href="{{ route('HalamanPPDB') }}">PPBD</a>
                 <div>
-                    <div class="hs-dropdown relative inline-flex">
-                        <button id="hs-dropdown-unstyled" type="button" class="hs-dropdown-toggle justify-center items-center gap-x-2 inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-emerald-700 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif" aria-expanded="false" aria-label="Menu">
-                          PPDB
-                        </button>
-                      
-                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-32 hidden z-10 mt-2 min-w-20 bg-blue-800 text-white pl-2 rounded-md" role="menu" aria-labelledby="hs-dropdown-unstyled">
-                          <a class="block  hover:text-yellow-400" href="{{ route('HalamanPPDB') }}">Info PPDB</a>
-                          <a class="block  hover:text-yellow-400" href="#">Form PPDB</a>
-                        </div>
+                    
+                </div>
+
+                <!-- Menggunakan Font Awesome untuk ikon pencarian -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+                <div>
+                    <a class="inline-block text-white hover:text-yellow-400 focus:outline-none focus:text-gray-600 dark:text-white dark:hover:text-neutral-300 dark:focus:text-neutral-300 font-serif"
+                       href="#">
+                        <i class="fas fa-search"></i> 
+                    </a>
                 </div>
             </div>
         </div>

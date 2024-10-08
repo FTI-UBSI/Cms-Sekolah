@@ -49,7 +49,10 @@ class PpdbResource extends Resource
                 Forms\Components\FileUpload::make('image_cover')
                     ->label('Gambar Cover')
                     ->image()
-                    ->maxSize(1024)
+                    ->maxSize(15000)
+                    ->imageEditorAspectRatios([
+                        null,
+                        '16:9',])
                     ->imageResizeTargetWidth('500')
                     ->imageResizeTargetHeight('500')
                     ->imageEditor()

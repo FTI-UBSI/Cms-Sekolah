@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('title')->nullable();;
             $table->string('image_cover')->nullable();
             $table->string('description', 1000);
-            $table->string('button_text')->nullable();
-            $table->string('button_link')->nullable();
+            $table->string('button_text1')->nullable();
+            $table->string('button_link1')->nullable();
+            $table->string('button_text2')->nullable();
+            $table->string('button_link2')->nullable();
             $table->timestamps();
         });
     }
